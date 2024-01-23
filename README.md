@@ -7,7 +7,7 @@ This browser based web application to ...
 ## 2. Names of Contributors
 List team members and/or short bio's here... 
 * My name is Sam Lee and I am 22.
-* 
+* My name is Abhi, I'm a real human with legs and a mouth. I enjoy doing regular human things like breathing and walking on my leg.
 * 
 	
 ## 3. Technologies and Resources Used
