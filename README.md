@@ -7,6 +7,7 @@ This browser based web application to ...
 ## 2. Names of Contributors
 List team members and/or short bio's here... 
 * Hi my name is Winson.
+* Hi my name is sam. I like pie.
 * 
 * 
 	
