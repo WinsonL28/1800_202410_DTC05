@@ -6,7 +6,7 @@ This browser based web application to ...
 
 ## 2. Names of Contributors
 List team members and/or short bio's here... 
-* Hi my name is Winson, I do not have that much experience within this field but I believe this project will be cool and fun!
+* My name is Sam Lee and I am 22.
 * 
 * 
 	
