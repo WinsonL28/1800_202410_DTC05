@@ -8,11 +8,8 @@ This browser based web application to ...
 List team members and/or short bio's here... 
 * My name is Sam Lee and I am 22. I like pie.
 * My name is Abhi, I'm a real human with legs and a mouth. I enjoy doing regular human things like breathing and walking on my leg.
-
 * Hi my name is Winson.
-*
-* 
-* 
+
 	
 ## 3. Technologies and Resources Used
 List technologies (with version numbers), API's, icons, fonts, images, media or data sources, and other resources that were used.
