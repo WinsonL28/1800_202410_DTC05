@@ -33,7 +33,11 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css"
+    />
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 
     <!-- scripts -->
@@ -41,40 +45,26 @@
     <script src="./scripts/skeleton.js"></script>
   </head>
 
-<body class="bg-cover" style="background-image: url(./images/claudio-schwarz-YtEob7T5CwU-unsplash.jpg);">
+  <body
+    class="bg-cover"
+    style="
+      background-image: url(./images/claudio-schwarz-YtEob7T5CwU-unsplash.jpg);
+    "
+  >
+    <header>
+      <!-- Nav Bar -->
+      <nav id="navbarPlaceholder"></nav>
+    </header>
 
-        <header>
-            <!-- Nav Bar -->
-            <nav class="flex flex-row items-center text-center justify-between h-10 mx-auto px-10 py-8 shadow-2xl" style="background-color: #223b45; color: #2f93a2;">
-                    <!-- logo -->
-                    <div>
-                        <a href="#"><img src="./images/gym-svgrepo-com.png" class="h-8 w-8" alt="logo" /></a>
-                    </div>
-                    <!-- Right elements -->
-                    <div class="flex gap-3">
-                        <!-- Menu Button -->
-                        <a href="#" class="">Contact</a>
-                        <img src="/images/hamburger-2-svgrepo-com.png" class="h-5 mt-1" alt="">
-                    </div>
-            </nav>
-        </header>
+    <div></div>
+    <!-- Footer -->
+    <footer id="footerPlaceholder" class="mt-auto"></footer>
 
-        <div>
-
-
-        </div>
-        <!-- Footer -->
-        <footer class="flex flex-col mt-auto text-center py-7" style="background-color: #223b45; color: #2f93a2;">
-            <p>Total Health ©</p>
-        </footer>
-
-        <script src="./scripts/firebaseAPI_DTC05.js"></script>
-        <script src="./scripts/skeleton.js"></script>
-        <script src="./scripts/script.js"></script>
-        <script>
-            logout();       //make sure user is logged out
-        </script>
-
-        </body>
-
+    <script src="./scripts/firebaseAPI_DTC05.js"></script>
+    <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/script.js"></script>
+    <script>
+      logout(); //make sure user is logged out
+    </script>
+  </body>
 </html>
