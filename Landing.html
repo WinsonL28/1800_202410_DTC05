@@ -39,7 +39,6 @@
       href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css"
     />
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
-
   </head>
 
   <body>
@@ -51,31 +50,7 @@
     >
       <header>
         <!-- Nav Bar -->
-        <!-- <nav id="navbarPlaceholder"></nav> -->
-        <nav
-          class="flex flex-row items-center text-center justify-between h-10 mx-auto px-10 py-8 shadow-2xl"
-          style="background-color: #223b45; color: #2f93a2"
-        >
-          <!-- logo -->
-          <div>
-            <a href="#"
-              ><img
-                src="./images/gym-svgrepo-com.png"
-                class="h-8 w-8"
-                alt="logo"
-            /></a>
-          </div>
-          <!-- Right elements -->
-          <div class="flex gap-3">
-            <!-- Menu Button -->
-            <a href="#" class="">Contact</a>
-            <img
-              src="/images/hamburger-2-svgrepo-com.png"
-              class="h-5 mt-1"
-              alt=""
-            />
-          </div>
-        </nav>
+        <nav id="navbarPlaceholder"></nav>
       </header>
       <!-- Welcome page content -->
       <div class="mx-auto mt-20 shadow-2xl" style="background-color: #dfdfdf">
@@ -105,17 +80,13 @@
       </div>
 
       <!-- Footer -->
-      <footer
-        class="flex flex-col mt-auto text-center py-7"
-        style="background-color: #223b45; color: #2f93a2"
-      >
-        <p>Total Health ©</p>
-      </footer>
+      <!-- <footer id="footerPlaceholder"></footer> -->
+      <!-- js shortcut has bugs fixed with extra class-->
+        <footer class="mt-auto" id="footerPlaceholder"></footer>
     </main>
     <!-- setup scripts -->
     <script src="./scripts/firebaseAPI_DTC05.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/script.js"></script>
-    <script src="./scripts/authentication.js"></script>
   </body>
 </html>
