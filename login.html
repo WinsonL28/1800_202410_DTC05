@@ -44,21 +44,27 @@
     <script src="./scripts/firebaseAPI_TEAM99.js"></script>
     <script src="./scripts/skeleton.js"></script>
   </head>
-  <body>
-    <main
-      class="flex flex-col min-h-screen bg-cover"
-      style="
-        background-image: url(./images/claudio-schwarz-YtEob7T5CwU-unsplash.jpg);
-      "
-    >
+  <body
+    class="flex flex-col min-h-screen bg-cover"
+    style="
+      background-image: url(./images/claudio-schwarz-YtEob7T5CwU-unsplash.jpg);
+    "
+  >
+    <header>
       <nav id="navbarPlaceholder"></nav>
+    </header>
 
-      <footer id="footerPlaceholder"></footer>
-    </main>
+    <div class="m-auto">
+      <div id="firebaseui-auth-container"></div>
+      <div id="loader">Loading...</div>
+    </div>
+
+    <footer class="mt-top" id="footerPlaceholder"></footer>
   </body>
 
   <script src="./scripts/firebaseAPI_DTC05.js"></script>
   <script src="./scripts/skeleton.js"></script>
   <script src="./scripts/script.js"></script>
   <script src="./scripts/authentication.js"></script>
+
 </html>
