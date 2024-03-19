@@ -8,7 +8,7 @@ function getNameFromAuth() {
             userName = user.displayName;
 
             //method #1:  insert with JS
-            document.getElementById("name").innerText = userName;    
+            document.getElementById("name").innerText = userName;
 
             //method #2:  insert using jquery
             //$("#name-goes-here").text(userName); //using jquery
@@ -18,8 +18,9 @@ function getNameFromAuth() {
 
         } else {
             // No user is signed in.
-            console.log ("No user is logged in");
+            console.log("No user is logged in");
         }
     });
 }
 getNameFromAuth(); //run the function
+
