@@ -8,7 +8,7 @@ var uiConfig = {
             // Return type determines whether we continue the redirect automatically
             // or whether we leave that to developer to handle.
             //------------------------------------------------------------------------------------------
-            // The code below is modified from default snippet provided by the FB documentation.
+            // The code below is modified from default snippet provided by the FB documentation.    
             //
             // If the user is a "brand new" user, then create a new "user" in your own database.
             // Assign this user with the name and email provided.
