@@ -29,7 +29,7 @@ function writeWorkouts() {
     var workoutRef = db.collection("workouts");
 
     workoutRef.add({
-        workoutcode: "WO-Upper-01",
+        workoutcode: "WOUB01",
         name: "This is a sample WO", //replace with your own city?
         level: "easy",
         details: "Upper body strength training",
