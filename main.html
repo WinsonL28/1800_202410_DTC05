@@ -63,6 +63,40 @@
             </div>
           </div>
 
+
+
+          <!-- Container for workout cards -->
+          <div class="container">
+            <h1>Some popular workouts</h1>
+            <!-- Here is the container for cards  -->
+            <div class="container">
+              <div id="workouts-go-here" class="row row-cols-auto">
+              </div>
+            </div>
+          </div>
+
+              <!-- Templates for general use, not displayed -->
+          <template id="WorkoutCardTemplate">
+            <div class="card py-2 mx-2 bg-slate-500" style="width: 18rem">
+              <img class="card-image card-img-top" src=" ..." alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-length">placeholder</p>
+                <br />
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the
+                  bulk of the card's content.
+                </p>
+                <a class="btn btn-primary card-href">Read more ...</a>
+              </div>
+            </div>
+          </template>
+
+
+
+
+
+
           <div class="flex flex-row bg-slate-300 border-2 border-slate-700 text-center py-8 px-4 mb-5 rounded-md">
             <div class="basis-2/12">
               <h1 class="border-2 border-slate-700 mr-5 rounded-md py-5">Diet Recommendations</h1>
@@ -110,6 +144,7 @@
   <script src="./scripts/firebaseAPI_DTC05.js"></script>
   <script src="./scripts/skeleton.js"></script>
   <script src="./scripts/script.js"></script>
+  <script src="./scripts/main.js"></script>
   <script>
     logout(); //make sure user is logged out
     </script>

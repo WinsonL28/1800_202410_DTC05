@@ -30,7 +30,7 @@ function writeWorkouts() {
 
     workoutRef.add({
         workoutcode: "WOUB01",
-        name: "This is a sample WO", //replace with your own city?
+        name: "Uper Body 1.1", //replace with your own city?
         level: "easy",
         details: "Upper body strength training",
         length: 25,          //number value
@@ -44,9 +44,9 @@ function writeWorkouts() {
 
 
 function displayCardsDynamically(collection) {
-    let cardTemplate = document.getElementById("WorkoutCardTemplate"); // Retrieve the HTML element with the ID "hikeCardTemplate" and store it in the cardTemplate variable. 
+    let cardTemplate = document.getElementById("WorkoutCardTemplate"); // Retrieve the HTML element with the ID "WorkCardTemplate" and store it in the cardTemplate variable. 
 
-    db.collection(collection).get()   //the collection called "hikes"
+    db.collection(collection).get()   //the collection called "workouts"
         .then(allworkouts => {
             //var i = 1;  //Optional: if you want to have a unique ID for each hike
             allworkouts.forEach(doc => { //iterate thru each doc
@@ -63,7 +63,7 @@ function displayCardsDynamically(collection) {
                 newcard.querySelector('.card-length').innerHTML = workoutLength + "min";
                 newcard.querySelector('.card-text').innerHTML = details;
                 newcard.querySelector('.card-image').src = `./images/${WorkoutCode}.jpg`; //Example: NV01.jpg
-                // newcard.querySelector('a').href = "eachHike.html?docID=" + docID;
+                newcard.querySelector('a').href = "each_workout.html?docID=" + docID;
 
                 //Optional: give unique ids to all elements for future use
                 // newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
