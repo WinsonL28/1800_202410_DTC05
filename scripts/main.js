@@ -24,6 +24,15 @@ function getNameFromAuth() {
 }
 getNameFromAuth(); //run the function
 
+function autoRedirectFirstTimeLoginIn() {
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            db.collection("users")
+            user.uid
+        }
+    })
+}
+
 function writeWorkouts() {
     //define a variable for the collection you want to create in Firestore to populate data
     var workoutRef = db.collection("workouts");
@@ -77,5 +86,12 @@ function displayCardsDynamically(collection) {
             })
         })
 }
-
 displayCardsDynamically("workouts");  //input param is the name of the collection
+
+function redirect() {
+    document.getElementById("workout-redirect").onclick = function () {
+        location.href = "each_workout.html";
+    };
+
+}
+redirect();
