@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Total Health</title>
+    <meta name="comp1800 template" content="My 1800 App" />
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Other libraries go here -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind cdn -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Link to styles of your own -->
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="icon" href="./images/TempLogo.png" />
+
+    <!-------------------------------------------------------->
+    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+    <!-------------------------------------------------------->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css"
+    />
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+    <!-- scripts -->
+    <script src="./scripts/skeleton.js"></script>
+  </head>
+
+  <body
+    class="flex flex-col min-h-screen bg-cover"
+    style="color: #2f93a2;"
+  >
+    <header>
+      <nav id="navbarPlaceholder"></nav>
+    </header>
+
+    <!-- About us card -->
+    <div class="m-4">
+
+      <div class="flex flex-col">
+
+        <!-- About us Heading -->
+        <div class="text-center py-14 bg-white my-20">
+          <h1 class="text-4xl font-semibold mb-4">About Us</h1>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem, cum?.</p>
+        </div>
+        
+        <!-- Team members Container -->
+        <div class="border-2 border-slate-400 bg-slate-300 rounded-md shadow-lg py-5 mb-10">
+          <h1 class="text-2xl font-medium text-center mb-5">The Team</h1>
+
+          <!-- Team members Cards -->
+          <div class="flex gap-4 mx-2">
+            <div class="flex flex-col grow border-2 border-slate-400 rounded-md shadow-lg text-center">
+              <h1 class="text-lg font-medium">Member name</h1>
+              <p>Sort Description</p>
+            </div>
+            <div class="flex flex-col grow border-2 border-slate-400 rounded-md shadow-lg text-center">
+              <h1 class="text-lg font-medium">Member name</h1>
+              <p>Sort Description</p>
+            </div>
+            <div class="flex flex-col grow border-2 border-slate-400 rounded-md shadow-lg text-center">
+              <h1 class="text-lg font-medium">Member name</h1>
+              <p>Sort Description</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Our Mission Statement -->
+        <div class="flex flex-col bg-slate-300 border-2 border-slate-400 mb-10 rounded-md shadow-xl">
+          <h1 class="text-2xl font-medium text-center my-5">Our Mission</h1>
+          <p class="text-center mx-2 pb-10">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi praesentium ipsum, pariatur quia quidem aspernatur.</p>
+        </div>
+
+      </div>
+      
+    </div>
+    <footer id="footerPlaceholder" class="mt-auto"></footer>
+    <!---------------------------------------------->
+    <!-- Your own JavaScript functions go here    -->
+    <!---------------------------------------------->
+    <script src="./scripts/firebaseAPI_DTC05.js"></script>
+    <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/script.js"></script>
+  </body>
+</html>
