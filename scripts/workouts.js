@@ -1,4 +1,5 @@
 var currentUser;
+console.log(currentUser)
 
 function insertNameFromFirestore() {
     // Check if the user is logged in:
@@ -8,8 +9,8 @@ function insertNameFromFirestore() {
             currentUser = db.collection("users").doc(user.uid); // Go to the Firestore document of the user
             currentUser.get().then(userDoc => {
                 // Get the user name
-                let first_Name = userDoc.data().firstName;
-                console.log(first_Name);
+                let userName = userDoc.data().firstName;
+                console.log(userName);
                 //$("#name-goes-here").text(userName); // jQuery
                 document.getElementById("name-goes-here").innerText = first_Name;
             })
@@ -77,6 +78,7 @@ function displayCardsDynamically(collection) {
                 var docID = doc.id;
                 let newcard = cardTemplate.content.cloneNode(true); // Clone the HTML template to create a new card (newcard) that will be filled with Firestore data.
                 console.log(doc)
+                console.log(docID)
 
 
                 //update title and text and image
@@ -85,8 +87,8 @@ function displayCardsDynamically(collection) {
                 newcard.querySelector('.card-text').innerHTML = details;
                 newcard.querySelector('.card-image').src = `./images/${WorkoutCode}.jpg`; //Example: NV01.jpg
                 newcard.querySelector('a').href = "each_workout.html?docID=" + docID;
-                newcard.querySelector('i').onclick = () => updateBookmark(docID);// for Backend part
                 newcard.querySelector('i').id = "save-" + docID;
+                newcard.querySelector('i').onclick = () => updateBookmark(docID);// for Backend part
 
                 currentUser.get().then(userDoc => {
                     //get the user name
@@ -115,22 +117,22 @@ function displayCardsDynamically(collection) {
 // It adds the hike to the "bookmarks" array
 // Then it will change the bookmark icon from the hollow to the solid version. 
 //-----------------------------------------------------------------------------
-function saveBookmark(workoutDocID) {
-    // Manage the backend process to store the hikeDocID in the database, recording which hike was bookmarked by the user.
-    currentUser.update({
-        // Use 'arrayUnion' to add the new bookmark ID to the 'bookmarks' array.
-        // This method ensures that the ID is added only if it's not already present, preventing duplicates.
-        bookmarks: firebase.firestore.FieldValue.arrayUnion(workoutDocID)
-    })
-        // Handle the front-end update to change the icon, providing visual feedback to the user that it has been clicked.
-        .then(function () {
-            console.log("bookmark has been saved for" + workoutDocID);
-            let iconID = 'save-' + workoutDocID;
-            //console.log(iconID);
-            //this is to change the icon of the hike that was saved to "filled"
-            document.getElementById(iconID).innerText = 'bookmark';
-        });
-}
+// function saveBookmark(workoutDocID) {
+//     // Manage the backend process to store the hikeDocID in the database, recording which hike was bookmarked by the user.
+//     currentUser.update({
+//         // Use 'arrayUnion' to add the new bookmark ID to the 'bookmarks' array.
+//         // This method ensures that the ID is added only if it's not already present, preventing duplicates.
+//         bookmarks: firebase.firestore.FieldValue.arrayUnion(workoutDocID)
+//     })
+//         // Handle the front-end update to change the icon, providing visual feedback to the user that it has been clicked.
+//         .then(function () {
+//             console.log("bookmark has been saved for" + workoutDocID);
+//             let iconID = 'save-' + workoutDocID;
+//             //console.log(iconID);
+//             //this is to change the icon of the hike that was saved to "filled"
+//             document.getElementById(iconID).innerText = 'bookmark';
+//         });
+// }
 
 // saveBookmark()
 
@@ -139,15 +141,19 @@ function updateBookmark(workoutDocID) {
     //     // Use 'arrayUnion' to add the new bookmark ID to the 'bookmarks' array.
     //     // This method ensures that the ID is added only if it's not already present, preventing duplicates.
     //     bookmarks: firebase.firestore.FieldValue.arrayUnion(workoutDocID)})
-
+    currentUser.update({
+        // Use 'arrayUnion' to add the new bookmark ID to the 'bookmarks' array.
+        // This method ensures that the ID is added only if it's not already present, preventing duplicates.
+        wbookmarks: firebase.firestore.FieldValue.arrayUnion(workoutDocID)})
+    
     currentUser.get().then(userDoc => {
-        let bookmarksNow = userDoc.data().bookmarks;
+        let bookmarksNow = userDoc.data().wbookmarks;
         console.log(bookmarksNow)
 
         if (bookmarksNow.includes(workoutDocID)) {
-            console.log("this workoutDocID exists in the database, shuld be remoed")
+            console.log("this workoutDocID exists in the database, shuld be removed")
             currentUser.update({
-                bookmarks: firebase.firestore.FieldValue.arrayRemove(workoutDocID)
+                wbookmarks: firebase.firestore.FieldValue.arrayRemove(workoutDocID)
             })
                 .then(function () {
                     console.log("bookmark has been removed for" + workoutDocID);
@@ -160,7 +166,7 @@ function updateBookmark(workoutDocID) {
         else {
             console.log("this workoutDocID does not exist, needs to be addded")
             currentUser.update({
-                bookmarks: firebase.firestore.FieldValue.arrayUnion(workoutDocID)
+                wbookmarks: firebase.firestore.FieldValue.arrayUnion(workoutDocID)
             })
                 .then(function () {
                     console.log("bookmark has been saved for" + workoutDocID);
