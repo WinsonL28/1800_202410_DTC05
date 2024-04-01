@@ -1,21 +1,54 @@
+var currentUser;
+
+function insertNameFromFirestore() {
+    // Check if the user is logged in:
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            console.log(user.uid); // Let's know who the logged-in user is by logging their UID
+            currentUser = db.collection("users").doc(user.uid); // Go to the Firestore document of the user
+            currentUser.get().then(userDoc => {
+                // Get the user name
+                let userName = userDoc.data().name;
+                console.log(userName);
+                //$("#name-goes-here").text(userName); // jQuery
+                document.getElementById("name-goes-here").innerText = userName;
+            })
+        } else {
+            console.log("No user is logged in."); // Log a message when no user is logged in
+        }
+    })
+}
+
+insertNameFromFirestore();
+
+
+
 function writeWorkouts() {
     //define a variable for the collection you want to create in Firestore to populate data
     var workoutRef = db.collection("workouts");
 
     workoutRef.add({
+        title: "Upper Body, Day A",
         workoutcode: "WOUB01",
-        name: "Uper Body 1.1", //replace with your own city?
+        name: "Upper Body 1.1", //replace with your own city?
         level: "easy",
         details: "Upper body strength training",
         length: 25,          //number value
         // hike_time: 60,       //number value
+        excercises: { 'Diamond (close-grip) pushups': "3 x 12", 
+        'Wide-grip pushups': "3 x 12",
+        'Pike pushups': "3 x 8", 
+        'Diamond pushups': "3 x 12", 
+        'Diamond pushups': "3 x 12", 
+        'Diamond pushups': "3 x 12",} ,
 
         last_updated: firebase.firestore.FieldValue.serverTimestamp()  //current system time
     });
 
     workoutRef.add({
+        title: "Upper Body, Day B",
         workoutcode: "WOUB02",
-        name: "Uper Body 1.1", //replace with your own city?
+        name: "Upper Body 1.2", //replace with your own city?
         level: "easy",
         details: "Upper body strength training",
         length: 25,          //number value
@@ -50,6 +83,16 @@ function displayCardsDynamically(collection) {
                 newcard.querySelector('.card-text').innerHTML = details;
                 newcard.querySelector('.card-image').src = `./images/${WorkoutCode}.jpg`; //Example: NV01.jpg
                 newcard.querySelector('a').href = "each_workout.html?docID=" + docID;
+                newcard.querySelector('i').onclick = () => updateBookmark(docID);// for Backend part
+                newcard.querySelector('i').id = "save-" + docID;
+
+                currentUser.get().then(userDoc => {
+                    //get the user name
+                    var bookmarks = userDoc.data().bookmarks;
+                    if (bookmarks.includes(docID)) {
+                        document.getElementById('save-' + docID).innerText = 'bookmark';
+                    }
+                })
 
                 //Optional: give unique ids to all elements for future use
                 // newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
@@ -62,6 +105,72 @@ function displayCardsDynamically(collection) {
                 //i++;   //Optional: iterate variable to serve as unique ID
             })
         })
+}
+
+
+//-----------------------------------------------------------------------------
+// This function is called whenever the user clicks on the "bookmark" icon.
+// It adds the hike to the "bookmarks" array
+// Then it will change the bookmark icon from the hollow to the solid version. 
+//-----------------------------------------------------------------------------
+function saveBookmark(workoutDocID) {
+    // Manage the backend process to store the hikeDocID in the database, recording which hike was bookmarked by the user.
+    currentUser.update({
+        // Use 'arrayUnion' to add the new bookmark ID to the 'bookmarks' array.
+        // This method ensures that the ID is added only if it's not already present, preventing duplicates.
+        bookmarks: firebase.firestore.FieldValue.arrayUnion(workoutDocID)
+    })
+        // Handle the front-end update to change the icon, providing visual feedback to the user that it has been clicked.
+        .then(function () {
+            console.log("bookmark has been saved for" + workoutDocID);
+            let iconID = 'save-' + workoutDocID;
+            //console.log(iconID);
+            //this is to change the icon of the hike that was saved to "filled"
+            document.getElementById(iconID).innerText = 'bookmark';
+        });
+}
+
+// saveBookmark()
+
+function updateBookmark(workoutDocID) {
+    // currentUser.update({
+    //     // Use 'arrayUnion' to add the new bookmark ID to the 'bookmarks' array.
+    //     // This method ensures that the ID is added only if it's not already present, preventing duplicates.
+    //     bookmarks: firebase.firestore.FieldValue.arrayUnion(workoutDocID)})
+    
+    currentUser.get().then(userDoc => {
+        let bookmarksNow = userDoc.data().bookmarks;
+        console.log(bookmarksNow)
+
+        if (bookmarksNow.includes(workoutDocID)) {
+            console.log("this workoutDocID exists in the database, shuld be remoed")
+            currentUser.update({
+                bookmarks: firebase.firestore.FieldValue.arrayRemove(workoutDocID)
+            })
+                .then(function () {
+                    console.log("bookmark has been removed for" + workoutDocID);
+                    let iconID = 'save-' + workoutDocID;
+                    //console.log(iconID);
+                    //this is to change the icon of the hike that was saved to "filled"
+                    document.getElementById(iconID).innerText = 'bookmark_border';
+                });
+        }
+        else {
+            console.log("this workoutDocID does not exist, needs to be addded")
+            currentUser.update({
+                bookmarks: firebase.firestore.FieldValue.arrayUnion(workoutDocID)
+            })
+                .then(function () {
+                    console.log("bookmark has been saved for" + workoutDocID);
+                    let iconID = 'save-' + workoutDocID;
+                    //console.log(iconID);
+                    //this is to change the icon of the hike that was saved to "filled"
+                    document.getElementById(iconID).innerText = 'bookmark';
+
+                });
+        }
+
+    })
 }
 
 displayCardsDynamically("workouts");  //input param is the name of the collection
