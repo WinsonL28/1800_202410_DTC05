@@ -1,3 +1,9 @@
+// testing function
+function displayuserid() {
+    firebase.auth().onAuthStateChanged((user) => {
+        console.log(user.uid)
+    })
+}
 
 
 function redirect() {
@@ -20,14 +26,20 @@ function redirect() {
 redirect();
 
 
-function profile_redirect(){
+function profile_redirect() {
+    firebase.auth().onAuthStateChanged((user) => {
+        db.collection("users").doc(user.uid).get()
+            .then(userDoc => {
+                let ufirst_Name = userDoc.data().firstName
+                let ulast_Name = userDoc.data().lastName
+                let uHeight = userDoc.data().height
+                let uWeight = userDoc.data().weight
+                let uGender = userDoc.data().gender
 
+                if (ufirst_Name != null && ulast_Name != null && uHeight != null && uWeight != null && uGender != null) {
+
+                    location.href = "first_time_login.html"
+                }
+            })
+    })
 }
-
-// function setup(){
-//     firebase.auth().onAuthStateChanged(user => {
-//         if(user)
-//     })
-// }
-// setup()
-
