@@ -46,33 +46,45 @@
     <!-- Cards -->
 
     <div class="flex justify-center">
-      <div class="flex flex-col mt-[-100px] container mx-5 py-14 h-auto bg-slate-300 z-10 shadow-inner rounded-md">
+      <div class="flex flex-col mt-[-100px] min-h-screen container mx-5 py-14 h-auto bg-slate-300 z-10 shadow-inner rounded-md">
         
-        <div class="flex justify-center my-32">
-          <h1 class="text-2xl font-bold">Total Health</h1>
+        <div class="flex justify-center my-14">
+          <h1 class="text-6xl font-bold">Total Health</h1>
         </div>
-        
-        <div class="flex container justify-between">
 
-          <div id="workout-redirect" class="grid grid-cols-2 gap-5 w-full mx-4 mb-4">
-            <div class="border-2 border-slate-400 shadow-md rounded-md">
-              <h1 class="text-center font-semibold text-md">Workouts</h1>
-              <p>This is more content</p>
-            </div>
+        <!-- Cards -->
+        <div class="flex flex-col px-5 gap-4 text-4xl">
 
-            <div id="food-rec-redirect" class="border-2 border-slate-400 shadow-md rounded-md">
-              <h1 class="text-center font-semibold text-md">Food Recommendations</h1>
-            </div>
-            
-            <div id="phys-input-redirect" class="border-2 border-slate-400 shadow-md rounded-md">
-              <h1 class="text-center font-semibold text-md">Physical Activity History</h1>
-            </div>
-            
-            <div id="food-his-redirect" class="border-2 border-slate-400 shadow-md rounded-md">
-              <h1 class="text-center font-semibold text-md">Diet History</h1>
+          <!-- Food Recommendations -->
+          <div id="workout-redirect" class="flex flex-row text-center grow border-2 border-slate-400">
+            <span class="material-symbols-outlined inline-flex items-center m-5 text-3xl">
+              restaurant
+              </span>
+            <h1 class="mt-5">Food Recommendations</h1>
+          </div>
+
+          <!-- Workouts -->
+          <div id="workout-redirect" class="flex flex-row text-center grow border-2 border-slate-400">
+            <span class="material-symbols-outlined inline-flex items-center m-5 text-3xl">
+              fitness_center
+              </span>
+            <h1 class="mt-5">Workouts</h1>
+          </div>
+
+          <!--Flex Row Div -->
+            <div class="flex flex-row gap-4">
+
+              <!-- Physical Activity History -->
+              <div id="workout-redirect" class="basis-1/2 text-center border-2 border-slate-400">
+                <h1>Physical Activity History</h1>
+              </div>
+              
+              <!-- Diet History -->
+              <div id="workout-redirect" class="basis-1/2 text-center border-2 border-slate-400">
+                <h1>Diet History</h1>
+              </div>
             </div>
           </div>
-        </div>
       </div>
     </div>
 
