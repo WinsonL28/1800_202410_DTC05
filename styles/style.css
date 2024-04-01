@@ -16,6 +16,31 @@
     'opsz' 24
 }
 
+.dropdown{
+    position: relative;
+}
+
+.dropdown-content{
+    position: absolute;
+    left: 0;
+    top: calc(100% + .25rem);
+    background-color: white;
+    padding: .75rem;
+    border-radius: .25rem;
+    box-shadow: 0 2px 15px 0px rgba(0,0,0,.1);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+}
+
+.dropdown > .dropbtn:focus + .dropdown-content{
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+
 /* #52CFE3
 #DFDFDF
 #223B45
