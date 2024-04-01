@@ -8,10 +8,10 @@ function insertNameFromFirestore() {
             currentUser = db.collection("users").doc(user.uid); // Go to the Firestore document of the user
             currentUser.get().then(userDoc => {
                 // Get the user name
-                let userName = userDoc.data().name;
-                console.log(userName);
+                let first_Name = userDoc.data().firstName;
+                console.log(first_Name);
                 //$("#name-goes-here").text(userName); // jQuery
-                document.getElementById("name-goes-here").innerText = userName;
+                document.getElementById("name-goes-here").innerText = first_Name;
             })
         } else {
             console.log("No user is logged in."); // Log a message when no user is logged in
@@ -35,12 +35,14 @@ function writeWorkouts() {
         details: "Upper body strength training",
         length: 25,          //number value
         // hike_time: 60,       //number value
-        excercises: { 'Diamond (close-grip) pushups': "3 x 12", 
-        'Wide-grip pushups': "3 x 12",
-        'Pike pushups': "3 x 8", 
-        'Diamond pushups': "3 x 12", 
-        'Diamond pushups': "3 x 12", 
-        'Diamond pushups': "3 x 12",} ,
+        excercises: {
+            'Diamond (close-grip) pushups': "3 x 12",
+            'Wide-grip pushups': "3 x 12",
+            'Pike pushups': "3 x 8",
+            'Diamond pushups': "3 x 12",
+            'Diamond pushups': "3 x 12",
+            'Diamond pushups': "3 x 12",
+        },
 
         last_updated: firebase.firestore.FieldValue.serverTimestamp()  //current system time
     });
@@ -137,7 +139,7 @@ function updateBookmark(workoutDocID) {
     //     // Use 'arrayUnion' to add the new bookmark ID to the 'bookmarks' array.
     //     // This method ensures that the ID is added only if it's not already present, preventing duplicates.
     //     bookmarks: firebase.firestore.FieldValue.arrayUnion(workoutDocID)})
-    
+
     currentUser.get().then(userDoc => {
         let bookmarksNow = userDoc.data().bookmarks;
         console.log(bookmarksNow)

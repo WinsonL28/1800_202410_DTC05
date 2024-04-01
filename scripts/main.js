@@ -8,7 +8,7 @@ function displayuserid() {
 
 function redirect() {
     document.getElementById("workout-redirect").onclick = function () {
-        location.href = "each_workout.html";
+        location.href = "workouts.html";
     };
 
     document.getElementById("food-redirect").onclick = function () {
@@ -36,10 +36,11 @@ function profile_redirect() {
                 let uWeight = userDoc.data().weight
                 let uGender = userDoc.data().gender
 
-                if (ufirst_Name != null && ulast_Name != null && uHeight != null && uWeight != null && uGender != null) {
+                if (ufirst_Name == null && ulast_Name == null && uHeight == null && uWeight == null && uGender == null) {
 
                     location.href = "first_time_login.html"
                 }
             })
     })
 }
+profile_redirect()
