@@ -1,4 +1,5 @@
 
+
 function writeUserData(uheight, uweight, ugender, ufirstName, ulastName) {
     var currentUser = db.collection("users").doc(user.uid);
 

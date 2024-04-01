@@ -1,4 +1,5 @@
 var currentUser;
+console.log(currentUser)
 
 function insertNameFromFirestore() {
     // Check if the user is logged in:
@@ -143,7 +144,7 @@ function updateBookmark(workoutDocID) {
         console.log(bookmarksNow)
 
         if (bookmarksNow.includes(workoutDocID)) {
-            console.log("this workoutDocID exists in the database, shuld be remoed")
+            console.log("this workoutDocID exists in the database, shuld be removed")
             currentUser.update({
                 bookmarks: firebase.firestore.FieldValue.arrayRemove(workoutDocID)
             })
