@@ -1,11 +1,13 @@
-function writeUserData(userId, height, weight, gender) {
-    var currentUser = db.collection("users").doc(user.uid);
-    var userID = user.uid;
 
-    db.database().ref(userID).set({
-        height: height,
-        weight: weight,
-        gender: gender
+function writeUserData(uheight, uweight, ugender, ufirstName, ulastName) {
+    var currentUser = db.collection("users").doc(user.uid);
+
+    currentUser.set({
+        firstName: ufirstName,
+        lastName: ulastName,
+        height: uheight,
+        weight: uweight,
+        gender: ugender
     });
 }
 
@@ -15,26 +17,37 @@ function editUserInfo() {
     document.getElementById('personalInfoFields').disabled = false;
 }
 
-function saveUserInfo() {
+function saveUserInfo(user) {
     //enter code here
     // how to retrieve info from front end
-    userName = document.getElementById('nameInput').value;       //get the value of the field with id="nameInput"
-    userSchool = document.getElementById().value;     //get the value of the field with id="schoolInput"
-    userCity = document.getElementById().value;       //get the value of the field with id="cityInput"
+    first_Name = document.getElementById('first_name').value;      //get the value of the field with id="nameInput"
+    last_Name = document.getElementById('last_name').value;       //get the value of the field with id="nameInput"
+    uHeight = document.getElementById('height').value;          //get the value of the field with id="nameInput"
+    uWeight = document.getElementById('weight').value;          //get the value of the field with id="nameInput"
+    uGender = document.getElementById('gender').value;          //get the value of the field with id="nameInput"
 
-    console.log(userName, userSchool, userCity);
     //a) get user entered values
     // how to store info in back end
-    currentUser.update({
-        name: userName,
-        school: userSchool,
-        city: userCity
+
+    console.log(user.uid)
+    db.collection("users").doc(user.uid).set({
+        firstName: first_Name,
+        lastName: last_Name,
+        height: uHeight,
+        weight: uWeight,
+        gender: uGender
     })
         .then(() => {
             console.log("Document successfully updated!");
+
         })
     //b) update user's document in Firestore
 
     //c) disable edit 
     document.getElementById('personalInfoFields').disabled = true;
+    window.location.assign("main.html");
+
 }
+firebase.auth().onAuthStateChanged((user) => {
+    saveUserInfo(user);
+})
