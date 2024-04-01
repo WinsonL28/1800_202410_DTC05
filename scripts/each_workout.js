@@ -1,3 +1,21 @@
+function writeWorkouts() {
+    //define a variable for the collection you want to create in Firestore to populate data
+    var workoutRef = db.collection("workouts");
+
+    workoutRef.add({
+        workoutcode: "WOUB01",
+        name: "Uper Body 1.1", //replace with your own city?
+        level: "easy",
+        details: "Upper body strength training",
+        length: 25,          //number value
+        // hike_time: 60,       //number value
+
+        last_updated: firebase.firestore.FieldValue.serverTimestamp()  //current system time
+    });
+}
+
+// writeWorkouts()
+
 function displayWorkoutInfo() {
     let params = new URL(window.location.href); //get URL of search bar
     let ID = params.searchParams.get("docID"); //get value for key "id"
