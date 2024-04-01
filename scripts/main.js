@@ -1,3 +1,6 @@
+var currentUser;
+console.log(currentUser)
+
 function getNameFromAuth() {
     firebase.auth().onAuthStateChanged(user => {
         // Check if a user is signed in:
