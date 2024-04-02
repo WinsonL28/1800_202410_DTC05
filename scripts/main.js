@@ -15,6 +15,11 @@ function redirect() {
         location.href = "diet_recomendation.html";
     };
 
+    document.getElementById("profile-redirect").onclick = function () {
+        location.href = "profile.html";
+    };
+
+
     // document.getElementById("physical_his-redirect").onclick = function () {
     //     location.href = "phys-history.html";
     // };
@@ -24,6 +29,7 @@ function redirect() {
     // };
 }
 redirect();
+
 
 
 function profile_redirect() {
@@ -36,9 +42,15 @@ function profile_redirect() {
                 let uWeight = userDoc.data().weight
                 let uGender = userDoc.data().gender
 
+                console.log(ufirst_Name)
+                console.log(ulast_Name)
+                console.log(uHeight)
+                console.log(uWeight)
+                console.log(uGender)    
+
                 if (ufirst_Name == null && ulast_Name == null && uHeight == null && uWeight == null && uGender == null) {
 
-                    location.href = "first_time_login.html"
+                    location.href = "profile.html"
                 }
             })
     })
