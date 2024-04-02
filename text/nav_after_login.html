@@ -1,31 +1,32 @@
-<nav
-    class="flex flex-row items-center text-center justify-between mx-auto px-20 shadow-2xl"
-    style="background-color: #223b45; color: #2f93a2; height: 100px;"
->
-<!-- logo -->
-<div>
-    <span class="material-symbols-outlined text-6xl">
-    exercise
-    </span>
-</div>
+<nav class="flex flex-row items-center text-center justify-between mx-auto px-20 shadow-2xl"
+    style="background-color: #223b45; color: #2f93a2; height: 100px;">
+    <!-- logo -->
+    <div>
+        <span class="material-symbols-outlined text-6xl">
+            exercise
+        </span>
+    </div>
 
-<!-- Right element -->
+    <!-- Right element -->
 
-<div>
-    <div class="dropdown">
-        <button class="dropbtn">
-            <span class="material-symbols-outlined text-6xl">
-                account_circle
-            </span>
-            <span class="material-icons-outlined">
-                menu
-            </span>
-        </button>
-        <div class="dropdown-content text-start text-lg">
-            <a href="#">Profile</a>
-            <a href="#">Logout</a>
+    <div>
+        <div class="dropdown">
+            <button class="dropbtn">
+                <span class="material-symbols-outlined text-6xl">
+                    account_circle
+                </span>
+            </button>
+            <div class="dropdown-content text-start text-lg">
+                <button type="button" onclick="profileRedirect()">Profile</a>
+                    <button type="button" onclick="logout()">Logout</a>
+            </div>
         </div>
     </div>
-</div>
 
 </nav>
+
+<script>
+    function profileRedirect() {
+        location.href = "profile.html";
+    }
+</script>

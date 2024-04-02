@@ -4,6 +4,8 @@ function writeUserData(uheight, uweight, ugender, ufirstName, ulastName) {
     var currentUser = db.collection("users").doc(user.uid);
 
     currentUser.set({
+        wbookmarks: [],
+        dbookmarks: [],
         firstName: ufirstName,
         lastName: ulastName,
         height: uheight,
@@ -37,7 +39,8 @@ function saveUserInfo() {
 
     firebase.auth().onAuthStateChanged((user) => {
 
-        console.log(user.uid)
+
+        // console.log(user.uid)
         db.collection("users").doc(user.uid).set({
             firstName: ufirst_Name,
             lastName: ulast_Name,
@@ -45,11 +48,13 @@ function saveUserInfo() {
             weight: uWeight,
             gender: uGender
         })
+
             .then(
-                location.href = "main.html"
-            )
+            location.href = "main.html"
+        )
     })
 }
+
 
 function populateUserInfo() {
     firebase.auth().onAuthStateChanged((user) => {
