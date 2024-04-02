@@ -9,17 +9,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Other libraries go here -->
-    <!-- <link
+    <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
-    /> -->
+    />
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    
 
     <!-- Tailwind cdn -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -56,41 +53,45 @@
     </header>
 
     <!-- Container for workout cards -->
-    <div class="container">
-      <div id="name-goes-here">hello</div>
-      <h1 class="text-center text-2xl">Some popular workouts</h1>
-      <!-- Here is the container for cards  -->
-      <div class="container">
-        <div id="workouts-go-here" class="row row-cols-auto"></div>
-      </div>
+    <h1><span id=name-goes-here></span></h1>
+    <h1>Saved Workouts</h1>
+<div class="container">
+  
+  <!-- Here is container for cards  -->
+  <div class="container">
+    <div id="workoutCard" class="row row-cols-auto">
     </div>
+  </div>
+</div>
+
+<!-- Templates for general use, not displayed -->
+<template id="savedCardTemplate">
+  <div class="card py-2 mx-2 bg-light" style="width: 10rem;">
+    <img class="card-image card-img-top" src=" ..." alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-length">placeholder</p>
+      <br>
+      <a class="btn btn-secondary card-href" id="read-more">Read more ...</a>
+    </div>
+  </div>
+</template>
+
+    <h1>Saved Diet Plan</h1>
+
+
+
 
     <!-- Templates for general use, not displayed -->
-    <template id="WorkoutCardTemplate">
-      <div class="card py-2 mx-2 bg-slate-500" style="width: 18rem">
-        <img class="card-image card-img-top" src=" ..." alt="..." />
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-length">placeholder</p>
-          <br />
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
-          <a class="btn btn-primary card-href">Details...</a>
-          <i class="material-icons">bookmark_border</i>
-
-        </div>
-      </div>
-    </template>
+ 
 
     <footer id="footerPlaceholder" class="mt-auto"></footer>
 
     <script src="./scripts/firebaseAPI_DTC05.js"></script>
     <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/script.js"></script>
+    <!-- <script src="./scripts/script.js"></script> -->
     <!-- <script src="./scripts/main.js"></script> -->
-    <script src="./scripts/workouts.js"></script>
+    <script src="./scripts/saved.js"></script>
     <script>
       // logout(); //make sure user is logged out
       </script>
