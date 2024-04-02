@@ -34,16 +34,14 @@ function writeWorkouts() {
         name: "Upper Body 1.1", //replace with your own city?
         level: "easy",
         details: "Upper body strength training",
-        length: 25,          //number value
-        // hike_time: 60,       //number value
-        excercises: {
-            'Diamond (close-grip) pushups': "3 x 12",
-            'Wide-grip pushups': "3 x 12",
-            'Pike pushups': "3 x 8",
-            'Diamond pushups': "3 x 12",
-            'Diamond pushups': "3 x 12",
-            'Diamond pushups': "3 x 12",
-        },
+        length: 45,          //number value
+
+        excercises: { 'Diamond (close-grip) pushups': "3 x 12", 
+        'Wide-grip pushups': "3 x 12",
+        'Pike pushups': "3 x 8", 
+        'Extended tricep pushups': "3 x 10", 
+        'Wide-grip pullups': "3 x 12", 
+        'Neutral-grip pullups': "3 x 12",} ,
 
         last_updated: firebase.firestore.FieldValue.serverTimestamp()  //current system time
     });
@@ -54,8 +52,16 @@ function writeWorkouts() {
         name: "Upper Body 1.2", //replace with your own city?
         level: "easy",
         details: "Upper body strength training",
-        length: 25,          //number value
-        // hike_time: 60,       //number value
+        length: 45,          //number value
+
+        excercises: {
+            'Archer pushups': "3 x 12",
+            'Wall walks': "3 x 4",
+            'Corkscrew pushups': "3 x 8",
+            'Staggered pushups': "3 x 12",
+            'Chin-ups': "3 x 12",
+            'Commando pullups': "3 x 12",
+        },
 
         last_updated: firebase.firestore.FieldValue.serverTimestamp()  //current system time
     });
@@ -92,11 +98,13 @@ function displayCardsDynamically(collection) {
 
                 currentUser.get().then(userDoc => {
                     //get the user name
-                    var bookmarks = userDoc.data().bookmarks;
+                    var bookmarks = userDoc.data().wbookmarks;
                     if (bookmarks.includes(docID)) {
                         document.getElementById('save-' + docID).innerText = 'bookmark';
                     }
                 })
+
+                // let bookmarksNow = userDoc.data().wbookmarks;
 
                 //Optional: give unique ids to all elements for future use
                 // newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
@@ -180,5 +188,5 @@ function updateBookmark(workoutDocID) {
 
     })
 }
-
+// updateBookmark(docID)
 displayCardsDynamically("workouts");  //input param is the name of the collection
