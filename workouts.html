@@ -27,6 +27,7 @@
 
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="./styles/style.css" />
+    <script src="./scripts/tailwind.config.js"></script>
     <link rel="icon" href="./images/TempLogo.png" />
 
     <!-------------------------------------------------------->
@@ -52,23 +53,24 @@
     </header>
 
     <!-- Container for workout cards -->
-    <div class="flex flex-col">
-      <div class="m-3 font-semibold text-colour2" id="name-goes-here"></div>
-      <h1 class="text-center text-2xl mb-5">Some popular workouts</h1>
+    <div class="flex flex-col mt-28">
+      <div class="m-3 font-semibold text-[#FF9100]" id="name-goes-here"></div>
+      <h1 class="text-center font-bold text-2xl text-[#223B45] mb-5">Some popular workouts</h1>
       <!-- Here is the container for cards  -->
-      <div class="">
+      <div class="mb-28">
         <div id="workouts-go-here" class="row row-cols-auto"></div>
       </div>
     </div>
 
     <!-- Templates for general use, not displayed -->
     <template id="WorkoutCardTemplate">
-      <div class="card py-2 m-3 rounded-lg bg-slate-300" >
-        <div class="p-3 rounded-xl"><img class="card-image card-img-top" src=" ..." alt="..." /></div>
+      <div class="card py-2 m-3 rounded-lg bg-[#DFDFDF]" >
+        <div class="p-3 rounded-xl">
+          <img class="card-image card-img-top" width="342px" height="228"  src=" ..." alt="..." /></div>
         <div class="card-body">
-          <h5 class="card-title px-3">Card title</h5>
-          <p class="card-length px-3">placeholder</p>
-          <p class="card-text px-3"></p>
+          <h5 class="card-title font-bold px-3">Card title</h5>
+          <p class="card-length font-semibold px-3">placeholder</p>
+          <p class="card-text font-semibold px-3"></p>
           <a class="btn btn-primary mx-3 hover:bg-slate-500 rounded-xl px-2 card-href" style="background-color: #52CFE3 ">Details...</a>
           <i class="material-icons">bookmark_border</i>
 
@@ -81,7 +83,7 @@
     <script src="./scripts/firebaseAPI_DTC05.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/script.js"></script>
-    <script src="./scripts/tailwind.config.js"></script>
+    
     <script src="./scripts/workouts.js"></script>
 
   </body>

@@ -66,6 +66,26 @@ function writeWorkouts() {
 
         last_updated: firebase.firestore.FieldValue.serverTimestamp()  //current system time
     });
+
+    workoutRef.add({
+        title: "Lower Body, Day A",
+        workoutcode: "WOLB01",
+        name: "Lower Body 1.1", //replace with your own city?
+        level: "easy",
+        details: "Lower body strength training",
+        length: 45,          //number value
+
+        excercises: [
+            'Hip thrusts - 3 x 12',
+            'Alternate split squats - 3 x 10(each side)',
+            'Heel elevated weighted squats - 3 x 8',
+            'Weighted lunges - 3 x 12',
+            'Hip extensions (knees up) - 2 x 10(each side)',
+            'Calf raises - 2 x 18(each side)'
+        ],
+
+        last_updated: firebase.firestore.FieldValue.serverTimestamp()  //current system time
+    });
 }
 
 // writeWorkouts()
