@@ -1,6 +1,8 @@
-function doAll() {
+async function doAll() {
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
+            currentUser = db.collection('users').doc(user.uid);
+            console.log(currentUser)
             insertNameFromFirestore(user);
             getBookmarks(user)
         } else {
@@ -11,8 +13,10 @@ function doAll() {
 doAll();
 
 
-function insertNameFromFirestore(user) {
+async function insertNameFromFirestore(user) {
     db.collection("users").doc(user.uid).get().then(userDoc => {
+ 
+        // console.log(currentUser)
 
         userName = userDoc.data().firstName;
         console.log(userName)
@@ -52,19 +56,74 @@ function getBookmarks(user) {
 
                     //update title and some pertinant information
                     newcard.querySelector('.card-title').innerHTML = title;
-                    newcard.querySelector('.card-length').innerHTML = workoutLength + "min";
+                    // newcard.querySelector('.card-length').innerHTML = workoutLength + "min";
                     newcard.querySelector('.card-image').src = `./images/${workoutCode}.jpg`; //Example: NV01.jpg
                     newcard.querySelector('a').href = "each_workout.html?docID=" + docID;
-
+                    newcard.querySelector('i').id = "save-" + docID;
+                    newcard.querySelector('i').onclick = () => updateBookmark(docID);
                     //NEW LINE: update to display length, duration, last updated
+
                     newcard.querySelector('.card-length').innerHTML =
                         "Length: " + doc.data().length + " min <br>" 
                         // "Duration: " + doc.data().hike_time + "min <br>" +
                         // "Last updated: " + doc.data().last_updated.toDate().toLocaleDateString();
-
+                    currentUser.get().then(userDoc => {
+                        //get the user name
+                        var bookmarks = userDoc.data().wbookmarks;
+                        if (bookmarks.includes(docID)) {
+                            document.getElementById('save-' + docID).innerText = 'bookmark';
+                        }
+                    })
                     //Finally, attach this new card to the gallery
                     workoutCard.appendChild(newcard);
                 })
             });
         })
+}
+
+
+async function updateBookmark(workoutDocID) {
+    // currentUser.update({
+    //     // Use 'arrayUnion' to add the new bookmark ID to the 'bookmarks' array.
+    //     // This method ensures that the ID is added only if it's not already present, preventing duplicates.
+    //     bookmarks: firebase.firestore.FieldValue.arrayUnion(workoutDocID)})
+    currentUser.update({
+        // Use 'arrayUnion' to add the new bookmark ID to the 'bookmarks' array.
+        // This method ensures that the ID is added only if it's not already present, preventing duplicates.
+        wbookmarks: firebase.firestore.FieldValue.arrayUnion(workoutDocID)
+    })
+
+    currentUser.get().then(userDoc => {
+        let bookmarksNow = userDoc.data().wbookmarks;
+        console.log(bookmarksNow)
+
+        if (bookmarksNow.includes(workoutDocID)) {
+            console.log("this workoutDocID exists in the database, shuld be removed")
+            currentUser.update({
+                wbookmarks: firebase.firestore.FieldValue.arrayRemove(workoutDocID)
+            })
+                .then(function () {
+                    console.log("bookmark has been removed for" + workoutDocID);
+                    let iconID = 'save-' + workoutDocID;
+                    //console.log(iconID);
+                    //this is to change the icon of the hike that was saved to "filled"
+                    document.getElementById(iconID).innerText = 'bookmark_border';
+                });
+        }
+        else {
+            console.log("this workoutDocID does not exist, needs to be addded")
+            currentUser.update({
+                wbookmarks: firebase.firestore.FieldValue.arrayUnion(workoutDocID)
+            })
+                .then(function () {
+                    console.log("bookmark has been saved for" + workoutDocID);
+                    let iconID = 'save-' + workoutDocID;
+                    //console.log(iconID);
+                    //this is to change the icon of the hike that was saved to "filled"
+                    document.getElementById(iconID).innerText = 'bookmark';
+
+                });
+        }
+
+    })
 }
