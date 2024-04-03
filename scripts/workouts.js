@@ -12,7 +12,7 @@ function insertNameFromFirestore() {
                 let userName = userDoc.data().firstName;
                 console.log(userName);
                 //$("#name-goes-here").text(userName); // jQuery
-                document.getElementById("name-goes-here").innerText = first_Name;
+                document.getElementById("name-goes-here").innerText = "Welcome " + userName;
             })
         } else {
             console.log("No user is logged in."); // Log a message when no user is logged in
@@ -44,15 +44,6 @@ function writeWorkouts() {
             'Neutral-grip pullups - 3 x 12'],
 
 
-
-
-        // { 'Diamond (close-grip) pushups': "3 x 12", 
-        // 'Wide-grip pushups': "3 x 12",
-        // 'Pike pushups': "3 x 8", 
-        // 'Extended tricep pushups': "3 x 10", 
-        // 'Wide-grip pullups': "3 x 12", 
-        // 'Neutral-grip pullups': "3 x 12",} ,
-
         last_updated: firebase.firestore.FieldValue.serverTimestamp()  //current system time
     });
 
@@ -71,19 +62,7 @@ function writeWorkouts() {
             'Staggered pushups - 3 x 12',
             'Chin-ups - 3 x 12',
             'Commando pullups - 3 x 12'
-        ]
-
-
-
-        // {
-        //     'Archer pushups': "3 x 12",
-        //     'Wall walks': "3 x 4",
-        //     'Corkscrew pushups': "3 x 8",
-        //     'Staggered pushups': "3 x 12",
-        //     'Chin-ups': "3 x 12",
-        //     'Commando pullups': "3 x 12",
-        // }
-        ,
+        ],
 
         last_updated: firebase.firestore.FieldValue.serverTimestamp()  //current system time
     });
@@ -99,7 +78,7 @@ function displayCardsDynamically(collection) {
         .then(allworkouts => {
             //var i = 1;  //Optional: if you want to have a unique ID for each hike
             allworkouts.forEach(doc => { //iterate thru each doc
-                var title = doc.data().name;       // get value of the "name" key
+                var title = doc.data().title;       // get value of the "name" key
                 var details = doc.data().details;  // get value of the "details" key
                 var WorkoutCode = doc.data().workoutcode;    //get unique ID to each hike to be used for fetching right image
                 var workoutLength = doc.data().length; //gets the length field

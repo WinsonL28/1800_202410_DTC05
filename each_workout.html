@@ -47,22 +47,22 @@
 
 
 
-  <div class="flex flex-col m-5">
-    <h1 class="text-2xl pb-5"><span id="workoutName">this Workout</span></h1>
-    <div class="position-relative">
-      <img class="workout-img responsive" alt="workout photo">
-      <!-- <button class="btn btn-primary position-absolute bottom-0 end-0 m-3"
-        onclick="saveHikeDocumentIDAndRedirect()">Write
-        Review</button> -->
-    </div>
-  </div>
-
-  <div class="m-5">
-    <div class="text-xl" id="workoutDetails"></div>
-    <div class="text-xl" id="length"></div>
-    <div class="text-xl" id="excercises"></div>
-
+  <div class="rounded-xl m-3 p-3" style="background-color: #DFDFDF";>
+    <div class="flex flex-col m-5" style="">
+      <h1 class="text-2xl pb-5"><span id="workoutName">this Workout</span></h1>
+      <div class="text-left">
+        <img class="workout-img responsive" alt="workout photo">
+        <button id="completed" onclick="AddtoHistory()" class="btn btn-primary rounded-xl px-2" style="background-color: #52CFE3">Click when complete</button>
+        <i class="material-icons py-2 ">bookmark_border</i>
     
+      </div>
+    </div>
+    <div class="m-5">
+      <div class="text-md" id="workoutDetails"></div>
+      <div class="text-md" id="length"></div>
+      <div class="text-md" id="excercises"></div>
+    
+    </div>
   </div>
 
 
@@ -84,6 +84,7 @@
   <!-- <script src="./scripts/script.js"></script> -->
   <!-- <script src="./scripts/main.js"></script> -->
   <script src="./scripts/each_workout.js"></script>
+  <!-- <script src="./scripts/tailwind.config.js"></script> -->
 </body>
 
 </html>
