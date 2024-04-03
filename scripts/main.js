@@ -15,9 +15,9 @@ function redirect() {
         location.href = "diet_recomendation.html";
     };
 
-    document.getElementById("profile-redirect").onclick = function () {
-        location.href = "profile.html";
-    };
+    // document.getElementById("profile-redirect").onclick = function () {
+    //     location.href = "profile.html";
+    // };
 
 
     // document.getElementById("physical_his-redirect").onclick = function () {

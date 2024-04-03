@@ -13,12 +13,15 @@
         <div class="dropdown">
             <button class="dropbtn">
                 <span class="material-symbols-outlined text-6xl">
-                    account_circle
+                    menu
                 </span>
+
             </button>
             <div class="dropdown-content text-start text-lg">
-                <button type="button" onclick="profileRedirect()">Profile</a>
-                    <button type="button" onclick="logout()">Logout</a>
+                <button type="button" onclick="profileRedirect()">Profile</button>
+                <button href="/saved.html" type="button">Saved</button>
+                <button type="button" onclick="logout()">Logout</button>
+
             </div>
         </div>
     </div>
@@ -27,6 +30,7 @@
 
 <script>
     function profileRedirect() {
-        location.href = "profile.html";
+        window.location.href = "profile.html";
     }
 </script>
+<!-- <script src="./scripts/skeleton.js"></script> -->
