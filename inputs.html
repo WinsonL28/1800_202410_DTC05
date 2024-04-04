@@ -37,30 +37,90 @@
 </head>
 
 <body class="flex flex-col min-h-screen bg-cover" style="color: #2f93a2;">
-    <header>
-
+    <!-- Nav Bar -->
+    <header class="py-14">
+        <nav id="navbarPlaceholder"></nav>
     </header>
+    <!-- Input selection -->
+    <ul class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200  justify-around">
+        <li class="me-2">
+            <a id="phys-button" onclick="physicaltoggle()" aria-current="page"
+                class="inline-block p-4 text-blue-600 bg-gray-100 rounded-t-lg ">Physical Activity</a>
+        </li>
+        <li class="me-2">
+            <a id="food-button" onclick="foodtoggle()"
+                class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50">Food
+                Inputs</a>
+        </li>
+    </ul>
 
-    <div class="visible border" id="physical-tag">
-        <h1>Physical Activity</h1>
-    </div>
+    <!-- Physical Input field -->
 
-    <div class="visible border border-dashed" id="food-tag">
-        <h1>Food consumed</h1>
-    </div>
+    <div id="phys-input" class=" px-10 py-10 my-auto">
+        <div class="grid gap-6 mb-6">
+            <div>
+                <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 ">Exercise Name</label>
+                <input type="text" id="first_name"
+                    class="shadow-2xl bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                    required />
+            </div>
+            <div>
+                <label for="last_name" class="block mb-2 text-sm font-medium text-gray-900">Intensity</label>
+                <input type="text" id="last_name"
+                    class="shadow-2xl bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                    placeholder="Doe" required />
+            </div>
+            <div>
+                <label for="height" class="block mb-2 text-sm font-medium text-gray-900 ">Height</label>
+                <input type="number" id="height"
+                    class="shadow-2xl bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                    placeholder="cm" required />
+            </div>
+            <div>
+                <label for="weight" class="block mb-2 text-sm font-medium text-gray-900">Weight</label>
+                <input type="number" id="weight"
+                    class="shadow-2xl bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    placeholder="kg" required />
+            </div>
+            <button id="submithandler" type="button" onclick=""
+                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Submit</button>
+        </div>
 
-    <div class="hidden" id="physical-input">
-        <p>testphysical</p>
-    </div>
-
-    <div class="hidden" id="food-input">
-        <p>testfood</p>
-    </div>
-
-
+    <!-- Food Input field -->
+    <div id="food-input" class=" px-10 py-10 my-auto">
+        <div class="grid gap-6 mb-6">
+            <div>
+                <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 ">First
+                    name</label>
+                <input type="text" id="first_name"
+                    class="shadow-2xl bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                    placeholder="Food Name" required />
+            </div>
+            <div>
+                <label for="last_name" class="block mb-2 text-sm font-medium text-gray-900">Last
+                    name</label>
+                <input type="text" id="last_name"
+                    class="shadow-2xl bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                    placeholder="Doe" required />
+            </div>
+            <div>
+                <label for="height" class="block mb-2 text-sm font-medium text-gray-900 ">Height</label>
+                <input type="number" id="height"
+                    class="shadow-2xl bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                    placeholder="cm" required />
+            </div>
+            <div>
+                <label for="weight" class="block mb-2 text-sm font-medium text-gray-900">Weight</label>
+                <input type="number" id="weight"
+                    class="shadow-2xl bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    placeholder="kg" required />
+            </div>
+            <button id="submithandler" type="button" onclick=""
+                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Submit</button>
+        </div>
 
     <footer>
-        
+
     </footer>
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
