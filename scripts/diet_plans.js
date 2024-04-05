@@ -110,7 +110,7 @@ function displayCardsDynamically(collection) {
                 // newcard.querySelector('.card-length').innerHTML = workoutLength + "min";
                 newcard.querySelector('.card-name').innerHTML = name;
                 newcard.querySelector('.card-text').innerHTML = details;
-                newcard.querySelector('.card-cal').innerHTML = caloriecount;
+                newcard.querySelector('.card-cal').innerHTML = caloriecount + " calories";
                 newcard.querySelector('.card-image').src = `./images/${dietCode}.jpg`; //Example: NV01.jpg
                 newcard.querySelector('a').href = "each_meal.html?docID=" + docID;
                 // newcard.querySelector('i').id = "save-" + docID;
