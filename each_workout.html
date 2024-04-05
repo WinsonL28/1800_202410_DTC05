@@ -1,90 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>Total Health</title>
+    <meta name="comp1800 template" content="My 1800 App" />
 
-<head>
-  <title>Total Health</title>
-  <meta name="comp1800 template" content="My 1800 App" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Required meta tags -->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Other libraries go here -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
 
-  <!-- Other libraries go here -->
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!-- Output.css -->
+    <link href="./styles/output.css" rel="stylesheet" />
 
-  <!-- Tailwind cdn -->
-  <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Link to styles of your own -->
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="icon" href="./images/TempLogo.png" />
 
-  <!-- Link to styles of your own -->
-  <link rel="stylesheet" href="./styles/style.css" />
-  <link rel="icon" href="./images/TempLogo.png" />
+    <!-------------------------------------------------------->
+    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+    <!-------------------------------------------------------->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css"
+    />
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 
-  <!-------------------------------------------------------->
-  <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
-  <!-------------------------------------------------------->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
-  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+    <!-- scripts -->
+    <!-- <script src="./scripts/firebaseAPI_TEAM99.js"></script> -->
+    <script src="./scripts/firebaseAPI_DTC05.js"></script>
+    <script src="./scripts/skeleton.js"></script>
+  </head>
 
-  <!-- scripts -->
-  <!-- <script src="./scripts/firebaseAPI_TEAM99.js"></script> -->
-  <script src="./scripts/firebaseAPI_DTC05.js"></script>
-  <script src="./scripts/skeleton.js"></script>
-</head>
+  <body>
+    <header>
+      <nav id="navbarPlaceholder"></nav>
+    </header>
 
-<body>
-  <header>
-    <nav id="navbarPlaceholder"></nav>
-  </header>
-
-
-
-  <div class="rounded-xl m-3 p-3 mt-28" style="background-color: #DFDFDF";>
-    <div class="flex flex-col m-5" >
-      <h1 class="text-2xl font-semibold pb-5"><span id="workoutName">this Workout</span></h1>
-      <div class="text-left">
-        <img class="workout-img responsive pb-2" alt="workout photo">
-        <button id="completed" onclick="AddtoHistory()" class="btn btn-primary rounded-xl px-2 align-middle hover:bg-[#326e78] bg-[#52CFE3]">Click when complete</button>
-        <i class="material-icons py-2 align-middle ">bookmark_border</i>
-    
+    <div class="rounded-xl m-3 p-3 mt-28" style="background-color: #dfdfdf" ;>
+      <div class="flex flex-col m-5">
+        <h1 class="text-2xl font-semibold pb-5">
+          <span id="workoutName">this Workout</span>
+        </h1>
+        <div class="text-left">
+          <img class="workout-img responsive pb-2" alt="workout photo" />
+          <button
+            id="completed"
+            onclick="AddtoHistory()"
+            class="btn btn-primary rounded-xl px-2 align-middle hover:bg-[#326e78] bg-[#52CFE3]"
+          >
+            Click when complete
+          </button>
+          <i class="material-icons py-2 align-middle">bookmark_border</i>
+        </div>
+      </div>
+      <div class="m-5">
+        <div class="text-md font-semibold" id="workoutDetails"></div>
+        <div class="text-md font-semibold" id="length"></div>
+        <div class="text-md" id="excercises"></div>
       </div>
     </div>
-    <div class="m-5">
-      <div class="text-md font-semibold" id="workoutDetails"></div>
-      <div class="text-md font-semibold" id="length"></div>
-      <div class="text-md" id="excercises"></div>
-    
-    </div>
-  </div>
 
-
-
-
-
-
-
-
-
-
-  <div></div>
-  <footer id="bottom_navbar" class="mt-auto"></footer>
-  <!---------------------------------------------->
-  <!-- Your own JavaScript functions go here    -->
-  <!---------------------------------------------->
-  <script src="./scripts/firebaseAPI_DTC05.js"></script>
-  <script src="./scripts/skeleton.js"></script>
-  <!-- <script src="./scripts/script.js"></script> -->
-  <!-- <script src="./scripts/main.js"></script> -->
-  <script src="./scripts/each_workout.js"></script>
-  <!-- <script src="./scripts/tailwind.config.js"></script> -->
-</body>
-
+    <div></div>
+    <footer id="bottom_navbar" class="mt-auto"></footer>
+    <!---------------------------------------------->
+    <!-- Your own JavaScript functions go here    -->
+    <!---------------------------------------------->
+    <script src="./scripts/firebaseAPI_DTC05.js"></script>
+    <script src="./scripts/skeleton.js"></script>
+    <!-- <script src="./scripts/script.js"></script> -->
+    <!-- <script src="./scripts/main.js"></script> -->
+    <script src="./scripts/each_workout.js"></script>
+    <!-- <script src="./scripts/tailwind.config.js"></script> -->
+  </body>
 </html>

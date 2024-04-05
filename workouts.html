@@ -17,13 +17,13 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
 
-    <!-- Tailwind cdn -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
+    <!-- Output.css -->
+    <link href="./styles/output.css" rel="stylesheet" />
 
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="./styles/style.css" />
@@ -55,25 +55,37 @@
     <!-- Container for workout cards -->
     <div class="flex flex-col mt-28">
       <div class="m-3 font-semibold text-[#FF9100]" id="name-goes-here"></div>
-      <h1 class="text-center font-bold text-2xl text-[#223B45] mb-5">Some popular workouts</h1>
+      <h1 class="text-center font-bold text-2xl text-realslate mb-5">
+        Some popular workouts
+      </h1>
       <!-- Here is the container for cards  -->
       <div class="mb-28">
-        <div id="workouts-go-here" class="row row-cols-auto "></div>
+        <div id="workouts-go-here" class="row row-cols-auto"></div>
       </div>
     </div>
 
     <!-- Templates for general use, not displayed -->
     <template id="WorkoutCardTemplate">
-      <div class="card py-5 m-3 rounded-lg bg-[#DFDFDF]" >
+      <div class="card py-5 m-3 rounded-lg bg-[#DFDFDF]">
         <div class="p-3 rounded-xl">
-          <img class="card-image card-img-top" width="342px" height="228"  src=" ..." alt="..." /></div>
+          <img
+            class="card-image card-img-top"
+            width="342px"
+            height="228"
+            src=" ..."
+            alt="..."
+          />
+        </div>
         <div class="card-body">
           <h5 class="card-title font-bold px-3">Card title</h5>
           <p class="card-length font-semibold px-3">placeholder</p>
           <p class="card-text px-3 mb-3 font-semibold"></p>
-          
-            <a class="btn btn-primary align-middle mx-3 px-3 py-1 hover:bg-[#326e78] rounded-xl bg-[#52CFE3]" >Details...</a>
-            <i class="material-icons align-middle">bookmark_border</i>
+
+          <a
+            class="btn btn-primary align-middle mx-3 px-3 py-1 hover:bg-[#326e78] rounded-xl bg-[#52CFE3]"
+            >Details...</a
+          >
+          <i class="material-icons align-middle">bookmark_border</i>
         </div>
       </div>
     </template>
@@ -83,8 +95,7 @@
     <script src="./scripts/firebaseAPI_DTC05.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/script.js"></script>
-    
-    <script src="./scripts/workouts.js"></script>
 
+    <script src="./scripts/workouts.js"></script>
   </body>
 </html>

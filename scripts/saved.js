@@ -15,12 +15,12 @@ doAll();
 
 async function insertNameFromFirestore(user) {
     db.collection("users").doc(user.uid).get().then(userDoc => {
- 
+
         // console.log(currentUser)
 
         userName = userDoc.data().firstName;
         console.log(userName)
-        document.getElementById("name-goes-here").innerHTML = userName +"'s";
+        document.getElementById("name-goes-here").innerHTML = userName + "'s";
     })
 
 }
@@ -64,9 +64,9 @@ function getBookmarks(user) {
                     //NEW LINE: update to display length, duration, last updated
 
                     newcard.querySelector('.card-length').innerHTML =
-                        "Length: " + doc.data().length + " min <br>" 
-                        // "Duration: " + doc.data().hike_time + "min <br>" +
-                        // "Last updated: " + doc.data().last_updated.toDate().toLocaleDateString();
+                        "Length: " + doc.data().length + " min <br>"
+                    // "Duration: " + doc.data().hike_time + "min <br>" +
+                    // "Last updated: " + doc.data().last_updated.toDate().toLocaleDateString();
                     currentUser.get().then(userDoc => {
                         //get the user name
                         var bookmarks = userDoc.data().wbookmarks;
