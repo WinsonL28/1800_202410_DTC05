@@ -88,7 +88,7 @@ function displayWorkoutInfo() {
                 }
             })
 
-       
+
 
 
         });
@@ -167,10 +167,10 @@ function AddtoHistory() {
                     console.log("this workoutDocID exists in the database")
                     currentUser.update({
                         WorkoutHistory: firebase.firestore.FieldValue.arrayRemove(workoutDocID)
-                        
+
 
                     })
-              
+
                         .then(function () {
                             console.log("marked as incomplete" + workoutDocID);
                             // let iconID = 'save-' + workoutDocID;
@@ -195,15 +195,11 @@ function AddtoHistory() {
                 }
 
             })
-        } else {
+        }
+        else {
             console.log("No user is logged in."); // Log a message when no user is logged in
         }
     })
-
-
-
-
-
 
 }
 
