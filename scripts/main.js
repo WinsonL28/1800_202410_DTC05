@@ -1,3 +1,8 @@
+import Chart from 'chart.js/auto';
+
+//Calorie Bar
+
+
 // testing function
 function displayuserid() {
     firebase.auth().onAuthStateChanged((user) => {
