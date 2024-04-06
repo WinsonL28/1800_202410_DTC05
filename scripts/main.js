@@ -1,3 +1,4 @@
+
 // testing function
 function displayuserid() {
     firebase.auth().onAuthStateChanged((user) => {
@@ -5,7 +6,7 @@ function displayuserid() {
     })
 }
 
-
+// Page Redirects
 function redirect() {
     document.getElementById("workout-redirect").onclick = function () {
         location.href = "workouts.html";

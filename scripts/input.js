@@ -1,23 +1,33 @@
-    function physicaltoggle() {
-    $('#phys-input').removeClass("hidden");
-    $('#phys-input').removeClass("hidden");
-    $('#food-input').addClass("hidden");
-    $('#phys-button').addClass("text-blue-600");
-    console.log("physical toggled!")
+function physicaltoggle() {
+    $('#phys-input').toggle(true);
+    $('#food-input').toggle(false);
+    $('#phys-input').addClass("text-blue-600");
+    $('#food-input').removeClass("text-blue-600");
 }
 
 function foodtoggle() {
-    $('#food-input').removeClass("hidden");
-    $('#phys-input').addClass("hidden");
-    $('#food-button').addClass("text-blue-600");
-    $('#phys-button').removeClass("text-blue-600");
-    $('#phys-button').removeClass("border-b");
-    console.log("food toggled!")
+    $('#phys-input').toggle(false);
+    $('#food-input').toggle(true);
+    $('#food-input').addClass("text-blue-600");
+    $('#phys-input').removeClass("text-blue-600");
 }
 
-function setup (){
-    $('#food-input').addClass("hidden");
-    console.log("running setup!")
+function foodSubmit() {
+    alert("Sucessful!")
+    location.href = "main.html"
+}
+
+function physicalSubmit() {
 
 }
-setup()
+
+function setup() {
+    $('#food-input').toggle(false);
+    
+}
+setup();
+
+function return_current_date(){
+    const date = new Date();
+    return 
+}
