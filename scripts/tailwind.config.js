@@ -21,10 +21,10 @@ module.exports = {
             'silver': '#ecebff',
             'bubble-gum': '#ff77e9',
             'bermuda': '#78dcca',
-            'colour1': '#52CFE3',
-            'colour2':'#223B45',
-            'colour3':'#DFDFDF',
-            'colour4':'#FF9100'
+            'colour1': ['#52CFE3'],
+            'colour2':'[#223B45]',
+            'colour3':'[#DFDFDF]',
+            'colour4':'[#FF9100]'
         },
     },
 }
