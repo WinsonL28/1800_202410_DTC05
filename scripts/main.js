@@ -1,7 +1,3 @@
-import Chart from 'chart.js/auto';
-
-//Calorie Bar
-
 
 // testing function
 function displayuserid() {
@@ -10,7 +6,7 @@ function displayuserid() {
     })
 }
 
-
+// Page Redirects
 function redirect() {
     document.getElementById("workout-redirect").onclick = function () {
         location.href = "workouts.html";
