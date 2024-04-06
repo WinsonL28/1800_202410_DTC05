@@ -8538,6 +8538,11 @@ html:has(.drawer-open.drawer-open) {
   inset: -0.25rem;
 }
 
+.inset-y-0 {
+  top: 0px;
+  bottom: 0px;
+}
+
 .bottom-0 {
   bottom: 0px;
 }
@@ -8548,6 +8553,14 @@ html:has(.drawer-open.drawer-open) {
 
 .top-0 {
   top: 0px;
+}
+
+.end-0 {
+  inset-inline-end: 0px;
+}
+
+.start-0 {
+  inset-inline-start: 0px;
 }
 
 .isolate {
@@ -8760,6 +8773,10 @@ html:has(.drawer-open.drawer-open) {
   margin-top: auto;
 }
 
+.mt-1 {
+  margin-top: 0.25rem;
+}
+
 .box-border {
   box-sizing: border-box;
 }
@@ -8909,6 +8926,18 @@ html:has(.drawer-open.drawer-open) {
 
 .w-screen {
   width: 100vw;
+}
+
+.max-w-\[16rem\] {
+  max-width: 16rem;
+}
+
+.max-w-\[8rem\] {
+  max-width: 8rem;
+}
+
+.max-w-sm {
+  max-width: 24rem;
 }
 
 .flex-shrink {
@@ -9261,6 +9290,10 @@ html:has(.drawer-open.drawer-open) {
 
 .grid-flow-col-dense {
   grid-auto-flow: column dense;
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .flex-row {
@@ -10251,6 +10284,26 @@ html:has(.drawer-open.drawer-open) {
   padding-top: 1.25rem;
 }
 
+.pe-3 {
+  padding-inline-end: 0.75rem;
+}
+
+.pe-3\.5 {
+  padding-inline-end: 0.875rem;
+}
+
+.ps-10 {
+  padding-inline-start: 2.5rem;
+}
+
+.ps-3 {
+  padding-inline-start: 0.75rem;
+}
+
+.ps-3\.5 {
+  padding-inline-start: 0.875rem;
+}
+
 .text-left {
   text-align: left;
 }
@@ -10438,6 +10491,10 @@ html:has(.drawer-open.drawer-open) {
 .stacked-fractions {
   --tw-numeric-fraction: stacked-fractions;
   font-variant-numeric: var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction);
+}
+
+.leading-none {
+  line-height: 1;
 }
 
 .text-\[\#336699\]\/\[\.35\] {

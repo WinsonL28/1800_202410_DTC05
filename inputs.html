@@ -34,6 +34,10 @@
 
     <!-- scripts -->
     <script src="./scripts/skeleton.js"></script>
+    <script>
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
+    </script>
 </head>
 
 <body class="flex flex-col min-h-screen bg-cover text-realaqua">
@@ -43,11 +47,12 @@
     </header>
     <!-- Input selection -->
     <ul class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200  justify-around">
-        <li class="me-2">
+        <li class="">
             <a id="phys-button" onclick="physicaltoggle()" aria-current="page"
-                class="inline-block p-4 text-blue-600 bg-gray-100 rounded-t-lg ">Physical Activity</a>
+                class="inline-block p-4 text-blue-600 bg-gray-100 rounded-t-lg">
+                Physical Activity</a>
         </li>
-        <li class="me-2">
+        <li class=>
             <a id="food-button" onclick="foodtoggle()"
                 class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50">Food
                 Inputs</a>
@@ -56,79 +61,160 @@
 
     <!-- Physical Input field -->
 
-    <div id="phys-input" class=" px-10 py-10 my-auto">
+    <form id="phys-input" class="mt-1 px-10 py-10 my-auto">
         <div class="grid gap-6 mb-6">
             <div>
-                <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 ">Exercise Name</label>
+                <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 ">Exercise Title</label>
                 <input type="text" id="first_name"
                     class="shadow-2xl bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                     required />
             </div>
+            <label for="intensity" class="block mb-2 text-sm font-medium text-gray-900">Intensity</label>
+            <select id="intensity"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                <option selected value="LOW">Low</option>
+                <option value="MODERATE">Morderate</option>
+                <option value="VIGOROUS">Vigorous</option>
+            </select>
+
+
+            <!-- datepicker -->
             <div>
-                <label for="last_name" class="block mb-2 text-sm font-medium text-gray-900">Intensity</label>
-                <input type="text" id="last_name"
-                    class="shadow-2xl bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                    placeholder="Doe" required />
+
+                <div>
+                    <label for="time" class="block text-sm font-medium text-gray-900">Select
+                        date:</label>
+                </div>
+                <div class="relative max-w-sm">
+                    <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                        <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                        </svg>
+                    </div>
+                    <input datepicker type="text"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 "
+                        placeholder="Select date">
+                </div>
             </div>
-            <div>
-                <label for="height" class="block mb-2 text-sm font-medium text-gray-900 ">Height</label>
-                <input type="number" id="height"
-                    class="shadow-2xl bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                    placeholder="cm" required />
-            </div>
-            <div>
-                <label for="weight" class="block mb-2 text-sm font-medium text-gray-900">Weight</label>
-                <input type="number" id="weight"
-                    class="shadow-2xl bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                    placeholder="kg" required />
-            </div>
-            <button id="submithandler" type="button" onclick=""
+
+
+            <!-- time -->
+            <form class="max-w-[16rem] mx-auto grid grid-cols-2 gap-4">
+                <div>
+                    <label for="start-time" class="block mb-2 text-sm font-medium text-gray-900">Start
+                        time:</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 end-0 top-0 flex items-center pe-3.5 pointer-events-none">
+                            <svg class="w-4 h-4 text-gray-500 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd"
+                                    d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <input type="time" id="start-time"
+                            class="bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                            min="09:00" max="18:00" value="00:00" required />
+                    </div>
+                </div>
+                <div>
+                    <label for="end-time" class="block mb-2 text-sm font-medium text-gray-900 ">End
+                        time:</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 end-0 top-0 flex items-center pe-3.5 pointer-events-none">
+                            <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd"
+                                    d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <input type="time" id="end-time"
+                            class="bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                            min="09:00" max="18:00" value="00:00" required />
+                    </div>
+                </div>
+            </form>
+
+
+
+            <button id="submithandler" type="button" onclick="foodSubmit()"
                 class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Submit</button>
         </div>
-
+    </form>
     <!-- Food Input field -->
-    <div id="food-input" class=" px-10 py-10 my-auto">
+    <div id="food-input" class="mt-1 px-10 py-10 my-auto visible">
         <div class="grid gap-6 mb-6">
             <div>
-                <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 ">First
-                    name</label>
+                <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 ">Food</label>
                 <input type="text" id="first_name"
                     class="shadow-2xl bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                     placeholder="Food Name" required />
             </div>
             <div>
-                <label for="last_name" class="block mb-2 text-sm font-medium text-gray-900">Last
-                    name</label>
+                <label for="last_name" class="block mb-2 text-sm font-medium text-gray-900">Calories</label>
                 <input type="text" id="last_name"
                     class="shadow-2xl bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                    placeholder="Doe" required />
+                    placeholder="(cal)" required />
             </div>
+            <!-- datepicker -->
             <div>
-                <label for="height" class="block mb-2 text-sm font-medium text-gray-900 ">Height</label>
-                <input type="number" id="height"
-                    class="shadow-2xl bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                    placeholder="cm" required />
+                <label for="time" class="block text-sm font-medium text-gray-900">Select
+                    date:</label>
             </div>
-            <div>
-                <label for="weight" class="block mb-2 text-sm font-medium text-gray-900">Weight</label>
-                <input type="number" id="weight"
-                    class="shadow-2xl bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                    placeholder="kg" required />
+            <div class="relative max-w-sm">
+                <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                    <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                    </svg>
+                </div>
+                <input datepicker type="text"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 "
+                    placeholder="Select date">
             </div>
-            <button id="submithandler" type="button" onclick=""
+
+
+            <!-- time -->
+
+            <form class="max-w-[8rem] mx-auto">
+                <label for="time" class="block mb-2 text-sm font-medium text-gray-900">Select
+                    time:</label>
+                <div class="relative">
+                    <div class="absolute inset-y-0 end-0 top-0 flex items-center pe-3.5 pointer-events-none">
+                        <svg class="w-4 h-4 text-gray-500 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd"
+                                d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <input type="time" id="time"
+                        class="bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                        min="09:00" max="18:00" value="00:00" required />
+                </div>
+            </form>
+
+
+            <button id="submithandler" type="button" onclick="foodSubmit()"
                 class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Submit</button>
         </div>
+    </div>
 
-    <footer>
+    <footer id="bottom_navbar" class="mt-auto"></footer>
 
-    </footer>
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
     <script src="./scripts/firebaseAPI_DTC05.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/datepicker.min.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/script.js"></script>
     <script src="./scripts/input.js"></script>
+
 </body>
 
 </html>
