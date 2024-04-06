@@ -50,16 +50,76 @@
         <h1 class="text-6xl font-bold">Total Health</h1>
       </div>
 
-      <!-- Cards -->
+      <!-- Food and Workout Cards -->
       <div class="flex flex-col px-5 gap-4 text-3xl container">
 
         <!-- Food Recommendations -->
         <div id="food-redirect"
-          class="flex flex-row text-start grow border-2 border-slate-400 shadow-xl rounded-md pb-20">
-          <span class="material-symbols-outlined inline-flex items-center m-5 text-3xl">
-            restaurant
-          </span>
-          <h1 class="mt-5">Food Recommendations</h1>
+          class="flex flex-col text-start grow border-2 border-slate-400 shadow-xl rounded-md pb-10">
+
+          <div class="flex flex-row mb-2">
+            <span class="material-symbols-outlined inline-flex items-center m-5 text-3xl">
+              restaurant
+            </span>
+            <h1 class="mt-5">Food Recommendations</h1>
+          </div>
+
+          <!-- Macro div -->
+          <div class="flex flex-col">
+
+            <!-- Marco Header -->
+            <div>
+              <h2 class="text- text-center mb-4">Macros</h2>
+          
+            </div>
+
+            <!-- Macro trackers -->
+            <div class="flex flex-row justify-evenly text-center">
+              
+              <!-- Protein -->
+              <div class="flex flex-col border-2 border-realaqua py-3 px-4 rounded-md shadow-lg">
+                <h3 class="text-lg mb-2">Protein</h3>
+                  <!-- Protein Tracker -->
+                  <div
+                    id="protein_progress_tracker"
+                    class="radial-progress mx-auto text-base mb-2" 
+                    style="--value:0;" 
+                    role="progressbar">
+                    0%
+                  </div>
+                <p class="text-base">0g</p>
+              </div>
+
+              <!-- Carbs -->
+              <div class="flex flex-col border-2 border-realaqua py-3 px-4 rounded-md shadow-lg">
+                <h3 class="text-lg mb-2">Carbs</h3>
+                  <!-- Calorie Tracker -->
+                  <div
+                    id="carbs_progress_tracker"
+                    class="radial-progress mx-auto text-base mb-2" 
+                    style="--value:0;" 
+                    role="progressbar">
+                    0%
+                  </div>
+                <p class="text-base">0g</p>
+              </div>
+
+              <!-- Fats -->
+              <div class="flex flex-col border-2 border-realaqua py-3 px-4 rounded-md shadow-lg">
+                <h3 class="text-lg mb-2">Fats</h3>
+                  <!-- Fats Tracker -->
+                  <div
+                    id="fats_progress_tracker"
+                    class="radial-progress mx-auto text-base mb-2"
+                    style="--value:0;"
+                    role="progressbar">
+                    0%
+                  </div>
+                <p class="text-base">0g</p>
+              </div>
+
+            </div>
+          </div>
         </div>
 
         <!-- Workouts -->
@@ -71,32 +131,58 @@
           <h1 class="mt-5">Workouts</h1>
         </div>
 
-        <!--Flex Row Div -->
+        <!-- Physical Activity and Diet History Cards -->
         <div class="flex flex-row gap-4">
 
           <!-- Physical Activity History -->
           <div id="physical-his-redirect"
-            class="basis-1/2 text-center border-2 border-slate-400 shadow-xl rounded-md pb-20">
-            <h1 class="text-xl pt-5 font-medium">Physical Activity History</h1>
+            class="basis-1/2 flex flex-col border-2 border-slate-400 shadow-xl rounded-md pb-10">
+
+            <!-- Physical Activity header -->
+            <div class="text-center">
+              <h1 class="text-xl pt-5 font-medium">Physical Activity History</h1>
+            </div>
+
+            <!-- Calorie Burned Header -->
+            <div class="my-3">
+              <h2 class="text-base text-center">Calories Burned</h2>
+            </div>
+
+            <!-- Calorie Burned Tracker -->
+            <div
+              id="calorie_burned_progress_tracker"
+              class="radial-progress mx-auto text-base" 
+              style="--value:0;" 
+              role="progressbar">
+              0%
+            </div>
+
+            <!-- Add 20% button -->
+            <button
+              class="border-2 border-realslate mx-auto text-sm p-2 rounded-md bg-realslate text-white hover:bg-realslate-500 hover:text-white mt-3"
+              onclick='add20()'>
+              Add 20%
+            </button>
+
           </div>
 
           <!-- Diet History -->
           <div id="diet-his-redirect"
-            class="basis-1/2 flex flex-col justify-center border-2 border-slate-400 shadow-xl rounded-md pb-20">
+            class="basis-1/2 flex flex-col border-2 border-slate-400 shadow-xl rounded-md pb-10">
 
             <!-- Diet header -->
             <div class=" text-center"> 
               <h1 class="text-xl pt-5 font-medium">Diet History</h1>
             </div>
             
-            <!-- Calorie Header -->
+            <!-- Calorie Intake Header -->
             <div class="my-3">
               <h2 class="text-base text-center">Calorie Intake</h2>
             </div>
 
-            <!-- Calorie Tracker -->
+            <!-- Calorie Intake Tracker -->
             <div
-              id="progresstracker"
+              id="calorie_progress_tracker"
               class="radial-progress mx-auto text-base" 
               style="--value:0;" 
               role="progressbar">
@@ -111,9 +197,10 @@
             </button>
 
             <!-- Reset Tracker Button -->
-
-
+          
+          
           </div>
+        
         </div>
       </div>
     </div>
@@ -121,17 +208,28 @@
 
   <footer id="bottom_navbar" class="mt-auto"></footer>
 
-
+  <!-- Temp Tracker JS for Calories -->
   <script>
     function add10() {
-      var value = document.getElementById('progresstracker').style.getPropertyValue('--value');
+      var value = document.getElementById('calorie_progress_tracker').style.getPropertyValue('--value');
       value = parseInt(value) + 10;
       
       if (value > 100) {
         value = 100;
       }
-      document.getElementById('progresstracker').style.setProperty('--value', value);
-      document.getElementById('progresstracker').innerHTML = value + '%';
+      document.getElementById('calorie_progress_tracker').style.setProperty('--value', value);
+      document.getElementById('calorie_progress_tracker').innerHTML = value + '%';
+    }
+
+    function add20() {
+      var value = document.getElementById('calorie_burned_progress_tracker').style.getPropertyValue('--value');
+      value = parseInt(value) + 20;
+      
+      if (value > 100) {
+        value = 100;
+      }
+      document.getElementById('calorie_burned_progress_tracker').style.setProperty('--value', value);
+      document.getElementById('calorie_burned_progress_tracker').innerHTML = value + '%';
     }
   </script>
 
