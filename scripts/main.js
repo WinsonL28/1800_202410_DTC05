@@ -49,10 +49,10 @@ function profile_redirect() {
                 console.log(uWeight)
                 console.log(uGender)    
 
-                if (ufirst_Name == null && ulast_Name == null && uHeight == null && uWeight == null && uGender == null) {
+                // if (ufirst_Name == null && ulast_Name == null && uHeight == null && uWeight == null && uGender == null) {
 
-                    location.href = "profile.html"
-                }
+                //     location.href = "profile.html"
+                // }
             })
     })
 }
