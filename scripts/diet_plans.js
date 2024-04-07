@@ -90,9 +90,9 @@ function displayCardsDynamically(collection) {
     let cardTemplate = document.getElementById("DietCardTemplate"); // Retrieve the HTML element with the ID "WorkCardTemplate" and store it in the cardTemplate variable. 
 
     db.collection(collection).get()   //the collection called "workouts"
-        .then(allworkouts => {
+        .then(allfoods => {
             //var i = 1;  //Optional: if you want to have a unique ID for each hike
-            allworkouts.forEach(doc => { //iterate thru each doc
+            allfoods.forEach(doc => { //iterate thru each doc
                 var title = doc.data().title;       // get value of the "name" key
                 var name = doc.data().name;       // get value of the "name" key
                 var details = doc.data().details;  // get value of the "details" key

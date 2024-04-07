@@ -45,7 +45,7 @@
   </head>
 
   <body
-    class="flex flex-col min-h-screen bg-cover"
+    class="flex flex-col min-h-screen"
   >
     <nav id="navbarPlaceholder"></nav>
 
@@ -63,14 +63,12 @@
         </h1>
       </div>
       <!-- Here is the container for cards  -->
-      <div class="mb-28" >
-        <div id="diet_plans-go-here" class="flex flex-col" ></div>
-      </div>
+      <div id="diet_plans-go-here" class="flex flex-col" ></div>
     </div>
 
     <!-- Templates for general use, not displayed -->
     <template id="DietCardTemplate">
-      <div class="card py-5 m-3 rounded-lg bg-[#DFDFDF]">
+      <div class="card py-5 m-3 rounded-lg bg-[#DFDFDF]" style="z-index: -1;">
         <div class="p-3 rounded-xl">
           <img
             class="card-image"
