@@ -1,18 +1,32 @@
 <div class="fixed bottom-0 w-full">
 
     <footer class="flex justify-around py-3 bg-realslate text-realaqua">
-        
-        <span id="main-redirect" class="material-symbols-outlined text-4xl">
+
+        <button onclick="backRedirect()" id="main-redirect" class="material-symbols-outlined text-4xl">
             Arrow_Back_IOS_New
-        </span>
-        
-        <span class="material-symbols-outlined text-4xl">
+        </button>
+
+        <button onclick="inputRedirect()" class="material-symbols-outlined text-4xl">
             add_circle
-        </span>
-        
-        <span class="material-symbols-outlined text-4xl">
+        </button>
+
+        <button onclick="settingsRedirect()" class="material-symbols-outlined text-4xl">
             settings
-        </span>
-        
+        </button>
+
     </footer>
 </div>
+
+<script>
+    function settingsRedirect() {
+        location.href = "settings.html";
+    }
+
+    function backRedirect() {
+        history.back()
+    }
+
+    function inputRedirect() {
+        location.href = "inputs.html";
+    }
+</script>

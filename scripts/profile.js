@@ -1,17 +1,24 @@
-
+function displayuserid() {
+    firebase.auth().onAuthStateChanged((user) => {
+        console.log(user.uid)
+    })
+}
 
 function writeUserData(uheight, uweight, ugender, ufirstName, ulastName) {
-    var currentUser = db.collection("users").doc(user.uid);
 
-    currentUser.set({
-        wbookmarks: [],
-        dbookmarks: [],
-        firstName: ufirstName,
-        lastName: ulastName,
-        height: uheight,
-        weight: uweight,
-        gender: ugender
-    });
+    firebase.auth().onAuthStateChanged((user) => {
+        var currentUser = db.collection("users").doc(user.uid);
+
+        currentUser.set({
+            wbookmarks: [],
+            dbookmarks: [],
+            firstName: ufirstName,
+            lastName: ulastName,
+            height: uheight,
+            weight: uweight,
+            gender: ugender
+        });
+    })
 }
 
 
@@ -20,27 +27,25 @@ function editUserInfo() {
     document.getElementById('personalInfoFields').disabled = false;
 }
 
-function saveUserInfo() {
-    //enter code here
-    // how to retrieve info from front end
-    var ufirst_Name = $("#first_name").val();      //get the value of the field with id="nameInput"
-    var ulast_Name = $("#last_name").val();       //get the value of the field with id="nameInput"
-    var uHeight = $("#height").val();        //get the value of the field with id="nameInput"
-    var uWeight = $("#weight").val();            //get the value of the field with id="nameInput"
-    var uGender = $("#gender").val();        //get the value of the field with id="nameInput"
-
-    //a) get user entered values
-    // how to store info in back end
-    console.log(ufirst_Name);
-    console.log(ulast_Name);
-    console.log(uHeight);
-    console.log(uWeight);
-    console.log(uGender);
-
+async function saveUserInfo() {
     firebase.auth().onAuthStateChanged((user) => {
+        //enter code here
+        // how to retrieve info from front end
+        var ufirst_Name = $("#first_name").val();     //get the value of the field with id="nameInput"
+        var ulast_Name = $("#last_name").val();       //get the value of the field with id="nameInput"
+        var uHeight = $("#height").val();             //get the value of the field with id="nameInput"
+        var uWeight = $("#weight").val();             //get the value of the field with id="nameInput"
+        var uGender = $("#gender").val();             //get the value of the field with id="nameInput"
+
+        //a) get user entered values
+        // how to store info in back end
+        console.log(ufirst_Name);
+        console.log(ulast_Name);
+        console.log(uHeight);
+        console.log(uWeight);
+        console.log(uGender);
 
 
-        // console.log(user.uid)
         db.collection("users").doc(user.uid).set({
             firstName: ufirst_Name,
             lastName: ulast_Name,
@@ -48,11 +53,18 @@ function saveUserInfo() {
             weight: uWeight,
             gender: uGender
         })
-
-            .then(
-            location.href = "main.html"
-        )
+            .then(function () {
+                autoRedirect();
+            })
     })
+}
+
+async function submitHandler() {
+    saveUserInfo();
+}
+
+function autoRedirect() {
+    location.href = "main.html"
 }
 
 

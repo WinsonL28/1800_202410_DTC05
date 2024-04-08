@@ -1,9 +1,10 @@
-<nav  class="flex flex-row items-center text-center justify-between mx-auto px-20 py-3 shadow-2xl fixed top-0 w-full text-realaqua bg-realslate">
+<nav
+    class="flex flex-row items-center text-center justify-between mx-auto px-20 py-3 shadow-2xl fixed top-0 w-full text-realaqua bg-realslate">
     <!-- logo -->
     <div>
-        <span class="material-symbols-outlined text-4xl font-light">
+        <button onclick="mainRedirect()" class="material-symbols-outlined text-4xl font-light">
             exercise
-        </span>
+        </button>
     </div>
 
     <!-- Right element -->
@@ -17,8 +18,8 @@
             </button>
             <div class="dropdown-content text-start text-lg">
                 <button type="button" onclick="profileRedirect()">Profile</button>
-                <button  onclick="savedRedirect() " type="button">Saved</button>
-                <button  onclick="historyRedirect()" type="button">History</button>
+                <button onclick="savedRedirect() " type="button">Saved</button>
+                <button onclick="historyRedirect()" type="button">History</button>
                 <button type="button" onclick="logout()">Logout</button>
 
             </div>
@@ -28,8 +29,11 @@
 </nav>
 
 <script>
+    function mainRedirect() {
+        location.href = "main.html";
+    }
     function profileRedirect() {
-        console.log("here")
+
         location.href = "profile.html";
     }
 
