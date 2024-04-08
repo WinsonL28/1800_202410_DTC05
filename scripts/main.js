@@ -16,20 +16,14 @@ function redirect() {
         location.href = "diet_recomendation.html";
     };
 
-    // document.getElementById("profile-redirect").onclick = function () {
-    //     location.href = "profile.html";
-    // };
+    document.getElementById("physical_his-redirect").onclick = function () {
+        location.href = "phys-history.html";
+    };
 
-
-    // document.getElementById("physical_his-redirect").onclick = function () {
-    //     location.href = "phys-history.html";
-    // };
-
-    // document.getElementById("diet-his-redirect").onclick = function () {
-    //     location.href = "diet-history.html";
-    // };
+    document.getElementById("diet-his-redirect").onclick = function () {
+        location.href = "diet-history.html";
+    };
 }
-redirect();
 
 
 
@@ -56,4 +50,12 @@ function profile_redirect() {
             })
     })
 }
-profile_redirect()
+
+
+function setup() {
+    displayuserid()
+    redirect()
+    profile_redirect()
+}
+
+setup()

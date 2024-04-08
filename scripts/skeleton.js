@@ -24,15 +24,8 @@ async function loadSkeleton() {
 }
 
 
-async function profileRedirect() {
-    // $("#profile").addEventListener("click", location.href = "profile.html");
-
-}
-
 async function setup() {
     await loadSkeleton();
-    profileRedirect();
-
-
 }
+
 setup()

@@ -38,12 +38,6 @@
     transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
 }
 
-/* .dropdown>.dropbtn:focus+.dropdown-content {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-} */
-
 .dropdown:focus-within .dropdown-content {
     opacity: 1;
     transform: translateY(0);
