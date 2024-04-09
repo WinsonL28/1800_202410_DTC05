@@ -8,53 +8,53 @@ function foodtoggle() {
     $('#food-input').toggle(true);
 }
 
-var foodcounter;
-var physcounter; 
 
 function foodSubmit() {
     firebase.auth().onAuthStateChanged((user) => {
-        var currentdb = db.collection("food-input").doc(user.uid);
-        foodcounter = currentdb.count();
-        
-        var ufood_name = $("#food-input").val();
-        var ucalories = $("#calories").val();
-        var ufats = $("#fats").val();
-        var ucarbs = $("#carbs").val();
-        var uproteins = $("#proteins").val();
-        var udate = $("#date-picker").val();
+        var currentdb = db.collection("users").doc(user.uid).collection("food-input");
+        console.log("running");
+
+        var uFoodName = $("#food_name").val();
+        var uDate = $("#date-picker").val();
+        var uCalories = $("#calories").val();
+        var uFats = $("#fats").val();
+        var uCarbs = $("#carbs").val();
+        var uProteins = $("#proteins").val();
 
         currentdb.add({
-            foodcounter:[
-                udate,
-                ufood_name,
-                ucalories,
-                ufats,
-                ucarbs,
-                uproteins
+            foodIntake: [
+                uFoodName,
+                uDate,
+                uCalories,
+                uFats,
+                uCarbs,
+                uProteins
             ]
         })
             .then(function () {
-                location.href = "main.html"
+                // location.href = "main.html"
             })
     })
 }
 
 function physicalSubmit() {
     firebase.auth().onAuthStateChanged((user) => {
-        var currentdb = db.collection("food-input").doc(user.uid);
+        var currentdb = db.collection("users").doc(user.uid).collection("phys-input");
+        console.log("running");
+        var uExercise = $("#exercise-name").val();
+        var uDate = $("#date-picker").val();
+        var uIntensity = $("#intensity").val();
+        var uStartTime = $("#start-time").val();
+        var uEndTime = $("#end-time").val();
 
-        var ufood_name = $("#food-input").val();
-        var ucalories = $("#calories").val();
-        var ufats = $("#fats").val();
-        var ucarbs = $("#carbs").val();
-        var uproteins = $("#proteins").val();
-        var udate = $("#date-picker").val();
-        currentdb.set({
-            food_name: ufood_name,
-            calories: ucalories,
-            fats: ufats,
-            carbs: ucarbs,
-            proteins: uproteins
+        currentdb.add({
+            physData: [
+                uExercise,
+                uDate,
+                uIntensity,
+                uStartTime,
+                uEndTime
+            ]
         })
             .then(function () {
                 location.href = "main.html"
