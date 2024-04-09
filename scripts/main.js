@@ -1,7 +1,3 @@
-import Chart from 'chart.js/auto';
-
-//Calorie Bar
-
 
 // testing function
 function displayuserid() {
@@ -65,7 +61,7 @@ function profile_redirect() {
 
 function setup() {
     displayuserid()
-    redirectSetup()
+    redirect()
     profile_redirect()
 }
 
