@@ -176,7 +176,7 @@ function AddtoHistory() {
                             // let iconID = 'save-' + workoutDocID;
                             //console.log(iconID);
                             //this is to change the icon of the hike that was saved to "filled"
-                            document.getElementById('completed').innerText = 'Completed';
+                            document.getElementById('completed').innerText = 'Mark as complete';
                         });
                 }
                 else {
