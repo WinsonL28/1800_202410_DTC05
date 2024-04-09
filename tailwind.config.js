@@ -6,10 +6,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'realaqua': '#2f93a2',
-        'darkeraqua': '#52CFE3',
-        'realslate': '#223B45',
-        'navyblue': '#DFDFDF',
+        'darkaqua': '#2f93a2',
+        'realaqua': '#52CFE3',
+        'navyblue': '#223B45',
+        'realslate': '#DFDFDF',
         'realorange': '#FF9100'
       }
     },

@@ -1,46 +1,45 @@
 <nav
-    class="flex flex-row items-center text-center justify-between mx-auto px-20 py-3 shadow-2xl fixed top-0 w-full text-realaqua bg-realslate" style="z-index: 2;">
-    <!-- logo -->
-    <div>
-        <button onclick="mainRedirect()" class="material-symbols-outlined text-4xl font-light">
-            exercise
-        </button>
+  class="flex flex-row items-center text-center justify-between mx-auto px-20 py-3 shadow-2xl fixed top-0 w-full text-darkaqua bg-navyblue"
+  style="z-index: 2"
+>
+  <!-- logo -->
+  <div>
+    <button
+      onclick="mainRedirect()"
+      class="material-symbols-outlined text-4xl font-light"
+    >
+      exercise
+    </button>
+  </div>
+
+  <!-- Right element -->
+  <div>
+    <div class="dropdown">
+      <button class="dropbtn">
+        <span class="material-symbols-outlined text-4xl mt-2"> menu </span>
+      </button>
+      <div class="dropdown-content text-start text-lg">
+        <button type="button" onclick="profileRedirect()">Profile</button>
+        <button onclick="savedRedirect() " type="button">Saved</button>
+        <button onclick="historyRedirect()" type="button">History</button>
+        <button type="button" onclick="logout()">Logout</button>
+      </div>
     </div>
-
-    <!-- Right element -->
-    <div>
-        <div class="dropdown">
-            <button class="dropbtn">
-                <span class="material-symbols-outlined text-4xl mt-2">
-                    menu
-                </span>
-
-            </button>
-            <div class="dropdown-content text-start text-lg">
-                <button type="button" onclick="profileRedirect()">Profile</button>
-                <button onclick="savedRedirect() " type="button">Saved</button>
-                <button onclick="historyRedirect()" type="button">History</button>
-                <button type="button" onclick="logout()">Logout</button>
-
-            </div>
-        </div>
-    </div>
-
+  </div>
 </nav>
 
 <script>
-    function mainRedirect() {
-        location.href = "main.html";
-    }
-    function profileRedirect() {
+  function mainRedirect() {
+    location.href = "main.html";
+  }
+  function profileRedirect() {
+    location.href = "profile.html";
+  }
 
-        location.href = "profile.html";
-    }
-
-    function savedRedirect() {
-        location.href = "saved.html"
-    }
-    function historyRedirect() {
-        location.href = "completed.html"
-    }
+  function savedRedirect() {
+    location.href = "saved.html";
+  }
+  function historyRedirect() {
+    location.href = "completed.html";
+  }
 </script>
