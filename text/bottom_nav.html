@@ -1,32 +1,39 @@
 <div class="fixed bottom-0 w-full">
+  <footer class="flex justify-around py-3 bg-navyblue text-darkaqua">
+    <button
+      onclick="backRedirect()"
+      id="main-redirect"
+      class="material-symbols-outlined text-4xl"
+    >
+      Arrow_Back_IOS_New
+    </button>
 
-    <footer class="flex justify-around py-3 bg-realslate text-realaqua">
+    <button
+      onclick="inputRedirect()"
+      class="material-symbols-outlined text-4xl"
+    >
+      add_circle
+    </button>
 
-        <button onclick="backRedirect()" id="main-redirect" class="material-symbols-outlined text-4xl">
-            Arrow_Back_IOS_New
-        </button>
-
-        <button onclick="inputRedirect()" class="material-symbols-outlined text-4xl">
-            add_circle
-        </button>
-
-        <button onclick="settingsRedirect()" class="material-symbols-outlined text-4xl">
-            settings
-        </button>
-
-    </footer>
+    <button
+      onclick="settingsRedirect()"
+      class="material-symbols-outlined text-4xl"
+    >
+      settings
+    </button>
+  </footer>
 </div>
 
 <script>
-    function settingsRedirect() {
-        // location.href = "settings.html";
-    }
+  function settingsRedirect() {
+    // location.href = "settings.html";
+  }
 
-    function backRedirect() {
-        history.back()
-    }
+  function backRedirect() {
+    history.back();
+  }
 
-    function inputRedirect() {
-        location.href = "inputs.html";
-    }
+  function inputRedirect() {
+    location.href = "inputs.html";
+  }
 </script>
