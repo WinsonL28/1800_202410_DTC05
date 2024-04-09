@@ -36,7 +36,7 @@ async function saveUserInfo() {
         var uHeight = $("#height").val();             //get the value of the field with id="nameInput"
         var uWeight = $("#weight").val();             //get the value of the field with id="nameInput"
         var uGender = $("#gender").val();             //get the value of the field with id="nameInput"
-
+        var uDOB = $("#date-picker").val();
         //a) get user entered values
         // how to store info in back end
         console.log(ufirst_Name);
@@ -44,6 +44,7 @@ async function saveUserInfo() {
         console.log(uHeight);
         console.log(uWeight);
         console.log(uGender);
+        console.log(uDOB);
 
 
         db.collection("users").doc(user.uid).set({
@@ -51,7 +52,8 @@ async function saveUserInfo() {
             lastName: ulast_Name,
             height: uHeight,
             weight: uWeight,
-            gender: uGender
+            gender: uGender,
+            dob: uDOB
         })
             .then(function () {
                 autoRedirect();

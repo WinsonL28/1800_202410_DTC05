@@ -22,7 +22,10 @@
 
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <link rel="icon" href="./images/TempLogo.png" />
+
 
     <!-------------------------------------------------------->
     <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
@@ -58,6 +61,42 @@
                         class="shadow-2xl bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                         placeholder="Doe" required />
                 </div>
+
+                <!-- date of birth -->
+                <div class="mt-1 my-auto">
+                    <div class="relative h-10 w-full min-w-[200px] max-w-1">
+                        <label for="exercise-name" class="block mb-2 text-sm font-medium text-gray-900 ">Date of
+                            Birth</label>
+                        <input id="date-picker"
+                            class="peer shadow-2xl bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-gray-900 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
+                            placeholder=" " />
+                    </div>
+
+                    <script>
+                        const datepicker = flatpickr("#date-picker", {});
+
+                        // styling the date picker
+                        const calendarContainer = datepicker.calendarContainer;
+                        const calendarMonthNav = datepicker.monthNav;
+                        const calendarNextMonthNav = datepicker.nextMonthNav;
+                        const calendarPrevMonthNav = datepicker.prevMonthNav;
+                        const calendarDaysContainer = datepicker.daysContainer;
+
+                        calendarContainer.className = `${calendarContainer.className} bg-white p-4 border border-blue-gray-50 rounded-lg shadow-lg shadow-blue-gray-500/10 font-sans text-sm font-normal text-blue-gray-500 focus:outline-none break-words whitespace-normal`;
+
+                        calendarMonthNav.className = `${calendarMonthNav.className} flex items-center justify-between mb-4 [&>div.flatpickr-month]:-translate-y-3`;
+
+                        calendarNextMonthNav.className = `${calendarNextMonthNav.className} absolute !top-2.5 !right-1.5 h-6 w-6 bg-transparent hover:bg-blue-gray-50 !p-1 rounded-md transition-colors duration-300`;
+
+                        calendarPrevMonthNav.className = `${calendarPrevMonthNav.className} absolute !top-2.5 !left-1.5 h-6 w-6 bg-transparent hover:bg-blue-gray-50 !p-1 rounded-md transition-colors duration-300`;
+
+                        calendarDaysContainer.className = `${calendarDaysContainer.className} [&_span.flatpickr-day]:!rounded-md [&_span.flatpickr-day.selected]:!bg-gray-900 [&_span.flatpickr-day.selected]:!border-gray-900`;
+                    </script>
+
+                    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+                </div>
+
+
                 <div>
                     <label for="height" class="block mb-2 text-sm font-medium text-gray-900 ">Height</label>
                     <input type="number" id="height"
