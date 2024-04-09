@@ -1,4 +1,4 @@
-# Project Title
+# Total Health
 
 ## 1. Project Description
 State your app in a nutshell, or one-sentence pitch. Give some elaboration on what the core features are.  
@@ -8,7 +8,7 @@ This browser based web application to ...
 List team members and/or short bio's here... 
 * My name is Sam Lee and I am 22. I like pie.
 * My name is Abhi, I'm a real human with legs and a mouth. I enjoy doing regular human things like breathing and walking on my leg.
-* Hi my name is Winson.
+* Hi my name is Winson, I am an aspiring student looking to learn and enjoy computer science!
 
 	
 ## 3. Technologies and Resources Used
@@ -17,6 +17,8 @@ List technologies (with version numbers), API's, icons, fonts, images, media or 
 * Tailwind (Front End Library)
 * Firebase 8.0 (BAAS - Backend as a Service)
 * DaisyUI
+* TW Elements
+* Flowbite
 
 ## 4. Complete setup/installion/usage
 State what a user needs to do when they come to your project.  How do others start using your code or application?
