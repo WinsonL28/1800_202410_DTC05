@@ -57,70 +57,73 @@
 
         <!-- Food Recommendations -->
         <div id="food-redirect"
-          class="flex flex-col text-start grow border-2 border-slate-400 shadow-xl rounded-md pb-10">
+          class="flex flex-col text-start grow border-2 border-slate-400 shadow-xl rounded-md">
 
           <div class="flex flex-row mb-2">
             <span class="material-symbols-outlined inline-flex items-center m-5 text-3xl">
               restaurant
             </span>
-            <h1 class="mt-5">Food Recommendations</h1>
-          </div>
-
-          <!-- Macro div -->
-          <div class="flex flex-col">
-
-            <!-- Marco Header -->
-            <div>
-              <h2 class="text- text-center mb-4">Macros</h2>
-            </div>
-
-            <!-- Macro trackers -->
-            <div class="flex flex-row justify-evenly text-center">
-
-              <!-- Protein -->
-              <div class="flex flex-col border-2 border-realaqua py-3 px-4 rounded-md shadow-lg">
-                <h3 class="text-lg mb-2">Protein</h3>
-                <!-- Protein Tracker -->
-                <div id="protein_progress_tracker" class="radial-progress mx-auto text-base mb-2" style="--value:0;"
-                  role="progressbar">
-                  0%
-                </div>
-                <p class="text-base">0g</p>
-              </div>
-
-              <!-- Carbs -->
-              <div class="flex flex-col border-2 border-realaqua py-3 px-4 rounded-md shadow-lg">
-                <h3 class="text-lg mb-2">Carbs</h3>
-                <!-- Calorie Tracker -->
-                <div id="carbs_progress_tracker" class="radial-progress mx-auto text-base mb-2" style="--value:0;"
-                  role="progressbar">
-                  0%
-                </div>
-                <p class="text-base">0g</p>
-              </div>
-
-              <!-- Fats -->
-              <div class="flex flex-col border-2 border-realaqua py-3 px-4 rounded-md shadow-lg">
-                <h3 class="text-lg mb-2">Fats</h3>
-                <!-- Fats Tracker -->
-                <div id="fats_progress_tracker" class="radial-progress mx-auto text-base mb-2" style="--value:0;"
-                  role="progressbar">
-                  0%
-                </div>
-                <p class="text-base">0g</p>
-              </div>
-
-            </div>
+            <h1 class="mt-5">Food Options</h1>
           </div>
         </div>
 
         <!-- Workouts -->
         <div id="workout-redirect"
-          class="flex flex-row text-center grow border-2 border-slate-400 shadow-xl rounded-md pb-20">
+          class="flex flex-row text-center grow border-2 border-slate-400 shadow-xl rounded-md">
           <span class="material-symbols-outlined inline-flex items-center m-5 text-3xl">
             fitness_center
           </span>
-          <h1 class="mt-5">Workouts</h1>
+          <h1 class="mt-5">Workout Options</h1>
+        </div>
+
+        <!-- Macro Card -->
+        <div class="mb-3">
+            <!-- Macro div -->
+            <div class="flex flex-col">
+
+              <!-- Marco Header -->
+              <div>
+                <h2 class="text- text-center my-4">Macros</h2>
+              </div>
+  
+              <!-- Macro trackers -->
+              <div class="flex flex-row justify-evenly text-center">
+  
+                <!-- Protein -->
+                <div class="flex flex-col border-2 border-realaqua py-3 px-4 rounded-md shadow-lg">
+                  <h3 class="text-lg mb-2">Protein</h3>
+                  <!-- Protein Tracker -->
+                  <div id="protein_progress_tracker" class="radial-progress mx-auto text-base mb-2" style="--value:80;"
+                    role="progressbar">
+                    80%
+                  </div>
+                  <p class="text-base">50g</p>
+                </div>
+  
+                <!-- Carbs -->
+                <div class="flex flex-col border-2 border-realaqua py-3 px-4 rounded-md shadow-lg">
+                  <h3 class="text-lg mb-2">Carbs</h3>
+                  <!-- Calorie Tracker -->
+                  <div id="carbs_progress_tracker" class="radial-progress mx-auto text-base mb-2" style="--value:90;"
+                    role="progressbar">
+                    90%
+                  </div>
+                  <p class="text-base">2250/2500</p>
+                </div>
+  
+                <!-- Fats -->
+                <div class="flex flex-col border-2 border-realaqua py-3 px-4 rounded-md shadow-lg">
+                  <h3 class="text-lg mb-2">Fats</h3>
+                  <!-- Fats Tracker -->
+                  <div id="fats_progress_tracker" class="radial-progress mx-auto text-base mb-2" style="--value:30;"
+                    role="progressbar">
+                    30%
+                  </div>
+                  <p class="text-base">20g</p>
+                </div>
+  
+              </div>
+            </div>
         </div>
 
         <!-- Physical Activity and Diet History Cards -->
@@ -161,7 +164,7 @@
 
             <!-- Diet header -->
             <div class=" text-center">
-              <h1 class="text-xl pt-5 font-medium">Diet History</h1>
+              <h1 class="text-xl pt-5 mb-7 font-medium">Diet History</h1>
             </div>
 
             <!-- Calorie Intake Header -->
