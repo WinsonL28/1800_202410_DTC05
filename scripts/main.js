@@ -80,8 +80,14 @@ function ageCal() {
 
 }
 
-function Bmr(){
-    
+function Bmr(age) {
+    firebase.auth().onAuthStateChanged((user) => {
+        db.collection("users").doc(user.uid).get()
+            .then(userDoc => {
+
+
+            })
+    })
 }
 
 async function setup() {
