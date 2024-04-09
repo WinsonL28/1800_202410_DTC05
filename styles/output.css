@@ -10554,6 +10554,16 @@ html:has(.drawer-open.drawer-open) {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.text-darkeraqua {
+  --tw-text-opacity: 1;
+  color: rgb(82 207 227 / var(--tw-text-opacity));
+}
+
+.text-navyblue {
+  --tw-text-opacity: 1;
+  color: rgb(223 223 223 / var(--tw-text-opacity));
+}
+
 .underline {
   text-decoration-line: underline;
 }
