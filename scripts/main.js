@@ -1,9 +1,11 @@
-
+// globals
+var age;
 // testing function
 function displayuserid() {
     firebase.auth().onAuthStateChanged((user) => {
         console.log(user.uid)
     })
+    return 0;
 }
 
 
@@ -58,11 +60,36 @@ function profile_redirect() {
     })
 }
 
+function ageCal() {
+    firebase.auth().onAuthStateChanged((user) => {
+        db.collection("users").doc(user.uid).get()
+            .then(userDoc => {
+                uDob = userDoc.data().dob.split("-");
+                year = Number(uDob[0]);
+                month = Number(uDob[1]) - 1;
+                day = Number(uDob[2]);
 
-function setup() {
-    displayuserid()
+                var today = new Date();
+                age = today.getFullYear() - year;
+                if (today.getMonth() < month || (today.getMonth() == month && today.getDate() < day)) {
+                    age--;
+                }
+            })
+    })
+    return (age);
+
+}
+
+function Bmr(){
+    
+}
+
+async function setup() {
+    // displayuserid()
     redirect()
     profile_redirect()
+    await ageCal();
+
 }
 
 setup()

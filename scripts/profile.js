@@ -79,6 +79,11 @@ function populateUserInfo() {
                 let uHeight = userDoc.data().height
                 let uWeight = userDoc.data().weight
                 let uGender = userDoc.data().gender
+                let udob = userDoc.data().dob
+
+                if (udob != null) {
+                    $("#date-picker").val(udob);
+                }
 
                 if (ufirst_Name != null) {
                     $("#first_name").val(ufirst_Name);
