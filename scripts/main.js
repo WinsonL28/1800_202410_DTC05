@@ -1,3 +1,7 @@
+import Chart from 'chart.js/auto';
+
+//Calorie Bar
+
 
 // testing function
 function displayuserid() {
@@ -6,8 +10,8 @@ function displayuserid() {
     })
 }
 
-// Page Redirects
-function redirectSetup() {
+
+function redirect() {
     document.getElementById("workout-redirect").onclick = function () {
         location.href = "workouts.html";
     };
@@ -15,6 +19,11 @@ function redirectSetup() {
     document.getElementById("food-redirect").onclick = function () {
         location.href = "diet_recomendation.html";
     };
+
+    // document.getElementById("profile-redirect").onclick = function () {
+    //     location.href = "profile.html";
+    // };
+
 
     // document.getElementById("physical_his-redirect").onclick = function () {
     //     location.href = "phys-history.html";
