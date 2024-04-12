@@ -87,9 +87,9 @@ function getBookmarks(user) {
             console.log(dbookmarks)
             let recipecardtemplate = document.getElementById("RecipeCardTemplate");
 
-            dbookmarks.forEach(recipeID =>{
+            dbookmarks.forEach(recipeID => {
                 console.log(recipeID)
-                db.collection("diet_plans").doc(recipeID).get().then(doc =>{
+                db.collection("diet_plans").doc(recipeID).get().then(doc => {
                     thisrecipe = doc.data();
                     recipeCal = thisrecipe.calories;
                     recipeDetails = thisrecipe.details;
@@ -108,17 +108,17 @@ function getBookmarks(user) {
                     recipecard.querySelector('.card-cal').innerHTML = recipeCal + " calories";
                     recipecard.querySelector('.card-image').src = `./images/${recipeCode}.jpg`; //Example: NV01.jpg
                     recipecard.querySelector('a').href = "each_meal.html?docID=" + docID;
-                    
+
                     recipeCard.appendChild(recipecard)
 
 
-                } )
+                })
             })
-            
+
 
         })
 
-    
+
 }
 
 
@@ -202,4 +202,18 @@ function updateBookmarkrecipe(recipeDocID) {
         }
 
     })
+}
+
+
+
+function saveWToggle() {
+    console.log("running saveWToggle")
+    $('#saved-workout').removeClass("hidden");
+    $('#saved-foods').addClass("hidden")
+}
+
+function saveFToggle() {
+    console.log("running saveFToggle")
+    $('#saved-foods').removeClass("hidden");
+    $('#saved-workout').addClass("hidden")
 }

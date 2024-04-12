@@ -32,7 +32,7 @@ function foodSubmit() {
             ]
         })
             .then(function () {
-                // location.href = "main.html"
+                location.href = "main.html"
             })
     })
 }
