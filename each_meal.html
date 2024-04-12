@@ -44,59 +44,52 @@
     <script src="./scripts/skeleton.js"></script>
   </head>
 
-  <body class="flex flex-col min-h-screen">
-    <nav id="navbarPlaceholder"></nav>
+  <body class="flex flex-col min-h-screen bg-cover text-darkaqua">
+    <header>
+      <nav id="navbarPlaceholder"></nav>
+    </header>
 
-    <!-- header background -->
-    <div class="flex flex-col mt-28">
-      <div
-        class="bg-[#DFDFDF] flex flex-col justify-center mx-10 py-12 rounded-md"
-      >
-        <div
-          class="text-center font-semibold text-3xl pb-2 text-[#FF9100]"
-          id="name-goes-here"
-        ></div>
-        <h1 class="text-center font-bold text-3xl text-navyblue">
-          Some Diet Recommendations
-        </h1>
-      </div>
-      <!-- Here is the container for cards  -->
-      <div id="diet_plans-go-here" class="flex flex-col mb-28"></div>
-    </div>
 
-    <!-- Templates for general use, not displayed -->
-    <template id="DietCardTemplate">
-      <div class="card py-5 m-3 rounded-lg bg-[#DFDFDF]">
-        <div class="p-3 rounded-xl">
-          <img
-            class="card-image"
-            width="380px"
-            height="228"
-            src="..."
-            alt="..."
-          />
+        <div class="rounded-xl m-3 p-3 mt-28" style="background-color: #dfdfdf" ;>
+          <div class="flex flex-col m-5">
+            <h1 class="text-2xl font-semibold pb-5">
+              <span id="RecipeName">this Recipe</span>
+            </h1>
+            <div class="text-left">
+              <img class="recipe-img responsive pb-2" alt="workout photo" />
+              <!-- <button id="completed" onclick="AddtoHistory()"
+                class="btn btn-primary rounded-xl px-2 align-middle hover:bg-[#326e78] bg-[#52CFE3]">
+                Mark as complete
+              </button> -->
+              <i class="material-icons py-2 align-middle">bookmark_border</i>
+            </div>
+          </div>
+          <div class="m-5">
+            <div class="text-md font-semibold" id="recipeTitle"></div>
+            <div class="text-md font-semibold" id="RecipeDetails"></div>
+            <div class="text-md font-semibold" id="Cal"></div>
+            <div class="text-md" id="recipeitems"></div>
+          </div>
         </div>
-        <div class="card-body">
-          <h5 class="card-title font-bold px-3 text-xl">Card title</h5>
-          <h5 class="card-name font-bold px-3 text-xl">Card title</h5>
 
-          <p class="card-text px-3 font-semibold text-xl"></p>
-          <p class="card-cal font-semibold px-3 text-xl">placeholder</p>
 
-          <a
-            class="btn btn-primary align-middle mx-3 px-3 py-1 hover:bg-[#326e78] rounded-xl bg-[#52CFE3]"
-            >Details...</a
-          >
-        </div>
-      </div>
-    </template>
 
-    <!-- Footer -->
+
+
+
+
+
+
+
+
+
     <footer id="bottom_navbar" class="mt-auto"></footer>
-
+    <!---------------------------------------------->
+    <!-- Your own JavaScript functions go here    -->
+    <!---------------------------------------------->
     <script src="./scripts/firebaseAPI_DTC05.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/script.js"></script>
-    <script src="./scripts/diet_plans.js"></script>
+    <script src="./scripts/each_meal.js"></script>
   </body>
 </html>

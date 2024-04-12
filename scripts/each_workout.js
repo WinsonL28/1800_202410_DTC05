@@ -3,13 +3,12 @@ function insertNameFromFirestore() {
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
             console.log(user.uid); // Let's know who the logged-in user is by logging their UID
-            currentUser = db.collection("users").doc(user.uid); // Go to the Firestore document of the user
+            currentUser = db.collection("users").doc(user.uid);
             currentUser.get().then(userDoc => {
                 // Get the user name
                 let userName = userDoc.data().firstName;
                 console.log(userName);
-                //$("#name-goes-here").text(userName); // jQuery
-                // document.getElementById("name-goes-here").innerText = "Welcome " + userName;
+
             })
         } else {
             console.log("No user is logged in."); // Log a message when no user is logged in
@@ -99,13 +98,9 @@ function displayWorkoutInfo() {
 displayWorkoutInfo();
 
 function updateBookmark(workoutDocID) {
-    // currentUser.update({
-    //     // Use 'arrayUnion' to add the new bookmark ID to the 'bookmarks' array.
-    //     // This method ensures that the ID is added only if it's not already present, preventing duplicates.
-    //     bookmarks: firebase.firestore.FieldValue.arrayUnion(workoutDocID)})
+
     currentUser.update({
-        // Use 'arrayUnion' to add the new bookmark ID to the 'bookmarks' array.
-        // This method ensures that the ID is added only if it's not already present, preventing duplicates.
+
         wbookmarks: firebase.firestore.FieldValue.arrayUnion(workoutDocID)
     })
 
@@ -121,8 +116,7 @@ function updateBookmark(workoutDocID) {
                 .then(function () {
                     console.log("bookmark has been removed for" + workoutDocID);
                     let iconID = 'save-' + workoutDocID;
-                    //console.log(iconID);
-                    //this is to change the icon of the hike that was saved to "filled"
+
                     document.getElementById(iconID).innerText = 'bookmark_border';
                 });
         }
@@ -135,7 +129,7 @@ function updateBookmark(workoutDocID) {
                     console.log("bookmark has been saved for" + workoutDocID);
                     let iconID = 'save-' + workoutDocID;
                     //console.log(iconID);
-                    //this is to change the icon of the hike that was saved to "filled"
+
                     document.getElementById(iconID).innerText = 'bookmark';
 
                 });
@@ -154,7 +148,7 @@ function AddtoHistory() {
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
             console.log(user.uid); // Let's know who the logged-in user is by logging their UID
-            currentUser = db.collection("users").doc(user.uid); // Go to the Firestore document of the user
+            currentUser = db.collection("users").doc(user.uid);
 
             currentUser.update({
 
@@ -173,9 +167,7 @@ function AddtoHistory() {
 
                         .then(function () {
                             console.log("marked as incomplete" + workoutDocID);
-                            // let iconID = 'save-' + workoutDocID;
-                            //console.log(iconID);
-                            //this is to change the icon of the hike that was saved to "filled"
+
                             document.getElementById('completed').innerText = 'Mark as complete';
                         });
                 }
@@ -186,9 +178,7 @@ function AddtoHistory() {
                     })
                         .then(function () {
                             console.log("Workout completed" + workoutDocID);
-                            // let iconID = 'save-' + workoutDocID;
-                            //console.log(iconID);
-                            //this is to change the icon of the hike that was saved to "filled"
+
                             document.getElementById('completed').innerText = 'Mark as incomplete';
 
                         });
