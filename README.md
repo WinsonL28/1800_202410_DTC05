@@ -1,8 +1,7 @@
 # Total Health
 
 ## 1. Project Description
-State your app in a nutshell, or one-sentence pitch. Give some elaboration on what the core features are.  
-This browser based web application to ... 
+Total health is an all inclusive app that provides recommendations on daily physical activity as well as diet plans. This would all be based on tracking your regular exercises as well as your meals.
 
 ## 2. Names of Contributors
 List team members and/or short bio's here... 
